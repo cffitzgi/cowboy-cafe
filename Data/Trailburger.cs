@@ -45,9 +45,9 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the burger has pickles
         /// </summary>
-     /* my cat Pickles jumped in my lap right when I got to this method :) */ 
         public bool Pickle
         {
+/* my cat Pickles jumped in my lap right when I got to this method :) */
             get { return pickle; }
             set { pickle = value; }
         }
