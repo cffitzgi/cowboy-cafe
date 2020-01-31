@@ -27,7 +27,6 @@ namespace CowboyCafe.Data
         /// </summary>
         public double Price => 5.99;
 
-
         /// <summary>
         /// The calories of the chicken
         /// </summary>

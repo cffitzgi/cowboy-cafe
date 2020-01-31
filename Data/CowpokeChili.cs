@@ -8,45 +8,25 @@ namespace CowboyCafe.Data
     /// </summary>
     public class CowpokeChili
     {
-        private bool cheese = true;
         /// <summary>
         /// If the chili is topped with cheese
         /// </summary>
-        public bool Cheese
-        {
-            get { return cheese; }
-            set { cheese = value; }
-        }
+        public bool Cheese { get; set; } = true;
 
-        private bool sourCream = true;
         /// <summary>
         /// If the chili is topped with sour cream
         /// </summary>
-        public bool SourCream
-        {
-            get { return sourCream; }
-            set { sourCream = value; }
-        }
+        public bool SourCream { get; set; } = true;
 
-        private bool greenOnions = true;
         /// <summary>
         /// If the chili is topped with green onions
         /// </summary>
-        public bool GreenOnions
-        {
-            get { return greenOnions; }
-            set { greenOnions = value; }
-        }
+        public bool GreenOnions { get; set; } = true;
 
-        private bool tortillaStrips = true;
         /// <summary>
         /// If the chili is topped with tortilla strips
         /// </summary>
-        public bool TortillaStrips
-        {
-            get { return tortillaStrips; }
-            set { tortillaStrips = value; }
-        }
+        public bool TortillaStrips { get; set; } = true;
 
         /// <summary>
         /// The price of the chili
@@ -79,10 +59,10 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!cheese) instructions.Add("hold cheese");
-                if (!sourCream) instructions.Add("hold sour cream");
-                if (!greenOnions) instructions.Add("hold green onions");
-                if (!tortillaStrips) instructions.Add("hold tortilla strips");
+                if (!Cheese) instructions.Add("hold cheese");
+                if (!SourCream) instructions.Add("hold sour cream");
+                if (!GreenOnions) instructions.Add("hold green onions");
+                if (!TortillaStrips) instructions.Add("hold tortilla strips");
 
                 return instructions;
             }
