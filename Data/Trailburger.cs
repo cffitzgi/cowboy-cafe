@@ -13,7 +13,6 @@ namespace CowboyCafe.Data
         /// </summary>
         public bool Bun { get; set; } = true;
 
-
         /// <summary>
         /// If the burger has ketchup
         /// </summary>
