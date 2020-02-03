@@ -10,34 +10,22 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the RustlersRibs entree
     /// </summary>
-    public class RustlersRibs
+    public class RustlersRibs : Entree
     {
         /// <summary>
         /// The price of the chili
         /// </summary>
-        public double Price
-        {
-            get
-            {
-                return 7.50;
-            }
-        }
+        public override double Price => 7.50;
 
         /// <summary>
         /// The calories of the chili
         /// </summary>
-        public uint Calories
-        {
-            get
-            {
-                return 894;
-            }
-        }
+        public override uint Calories => 894;
 
         /// <summary>
         /// Special instructions for the preparation of the ribs
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
