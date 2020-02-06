@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* DakotaDoubleBurger.cs
+ * Author: Cashel FitzGibbons
+ */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

@@ -28,8 +28,8 @@ namespace CowboyCafe.DataTests
             Assert.Empty(burger.SpecialInstructions);
         }
 
-        /*[Fact]
-        //*public void HoldingBunShouldAddInstruction()
+        [Fact]
+        public void HoldingBunShouldAddInstruction()
         {
             var burger = new Trailburger();
             burger.Bun = false;
@@ -37,7 +37,7 @@ namespace CowboyCafe.DataTests
             {
                 Assert.Equal("hold bun", instruction);
             });
-        }*/
+        }
 
         [Fact]
         public void HoldingKetchupShouldAddInstruction()

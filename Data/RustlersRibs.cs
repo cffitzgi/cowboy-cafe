@@ -1,6 +1,5 @@
 ﻿/* RustlersRibs.cs
  * Author: Cashel FitzGibbons
- * Cloned/modified from premade CowpokeChili.cs
  */
 using System;
 using System.Collections.Generic;

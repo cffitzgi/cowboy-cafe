@@ -1,4 +1,5 @@
-﻿/* ChiliCheeseFries.cs
+﻿/* PanDeCampo.cs
+ * Author: Cashel FitzGibbons
  */
 using System;
 using System.Collections.Generic;
@@ -6,10 +7,10 @@ using System.Text;
 
 namespace CowboyCafe.Data
 {
-    public class ChiliCheeseFries : Side
+    public class PanDeCampo : Side
     {
         /// <summary>
-        /// The price of the Chili Cheese Fries (depending on the size).
+        /// The price of the Pan de campo (depending on the size).
         /// </summary>
         public override double Price
         {
@@ -17,16 +18,16 @@ namespace CowboyCafe.Data
             {
                 return Size switch
                 {
-                    Size.Small => 1.99,
-                    Size.Medium => 2.99,
-                    Size.Large => 3.99,
+                    Size.Small => 1.59,
+                    Size.Medium => 1.79,
+                    Size.Large => 1.99,
                     _ => throw new NotImplementedException("Unknown size"),
                 };
             }
         }
 
         /// <summary>
-        /// The calories of the Chili Cheese Fries (depending on the size).
+        /// The calories of the Pan de campo (depending on the size).
         /// </summary>
         public override uint Calories
         {
@@ -34,9 +35,9 @@ namespace CowboyCafe.Data
             {
                 return Size switch
                 {
-                    Size.Small => 433,
-                    Size.Medium => 524,
-                    Size.Large => 610,
+                    Size.Small => 227,
+                    Size.Medium => 269,
+                    Size.Large => 367,
                     _ => throw new NotImplementedException("Unknown size"),
                 };
             }

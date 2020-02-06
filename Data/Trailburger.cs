@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Trailburger.cs
+ * Author: Cashel FitzGIbbons
+ */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

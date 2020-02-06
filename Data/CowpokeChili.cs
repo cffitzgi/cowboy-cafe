@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* CowpokeChili.cs
+ * 
+ */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
