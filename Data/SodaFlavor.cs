@@ -7,14 +7,14 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// Soda flavor enumerator;
+    /// Soda flavor enumerator
     /// </summary>
     public enum SodaFlavor
     {
-        Cream,
-        Orange,
+        CreamSoda,
+        OrangeSoda,
         Sarsaparilla,
-        Birch,
-        Root,
+        BirchBeer,
+        RootBeer,
     }
 }

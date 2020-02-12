@@ -27,13 +27,13 @@ namespace CowboyCafe.Data
         public abstract uint Calories { get; }
 
         /// <summary>
-        /// Gets the special instructions for the drink.
-        /// </summary>
-        public abstract List<string> SpecialInstructions();
-
-        /// <summary>
         /// Bool for whether drink has ice.
         /// </summary>
-        public bool Ice { get; set;}
+        public virtual bool Ice { get; set; } = true;
+
+        /// <summary>
+        /// Gets the special instructions for the drink.
+        /// </summary>
+        public abstract List<string> SpecialInstructions;
     }
 }
