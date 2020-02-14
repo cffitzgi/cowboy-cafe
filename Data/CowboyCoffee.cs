@@ -12,6 +12,11 @@ namespace CowboyCafe.Data
         public bool RoomForCream { get; set; } = false;
 
         /// <summary>
+        /// Whether the coffee is decaf.
+        /// </summary>
+        public bool Decaf { get; set; } = false;
+
+        /// <summary>
         /// Bool for whether coffee has ice.
         /// </summary>
         public override bool Ice { get; set; } = false;
