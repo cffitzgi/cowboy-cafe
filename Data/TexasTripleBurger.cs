@@ -95,6 +95,12 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Coverts the object to a string
+        /// </summary>
+        /// <returns>The string "Texas Triple Burger"</returns>
+        public override string ToString() { return "Texas Triple Burger"; }
     }
 }
 

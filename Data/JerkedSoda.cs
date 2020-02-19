@@ -60,5 +60,12 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Coverts the object to a string
+        /// </summary>
+        /// <returns>The string "Jerked Soda" with the Flavor and Size in the next line.</returns>
+        public override string ToString() { return "Jerked Soda\n\t"
+                + Flavor.ToString() + "\n\t" + Size.ToString(); }
     }
 }

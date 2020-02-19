@@ -70,5 +70,11 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Coverts the object to a string
+        /// </summary>
+        /// <returns>The string "Cowboy Coffee" with the size in the next line.</returns>
+        public override string ToString() { return "Cowboy Coffee\n\t" + Size.ToString(); }
     }
 }
