@@ -10,15 +10,16 @@
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="5"/>
         </Style>
     </UserControl.Resources>
     
-    <Grid Background="GhostWhite">
+    <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
@@ -48,8 +49,8 @@
             <Button Name="AddWater" Click="AddWater_Click">Water</Button>
 
         </StackPanel>
-        <StackPanel Grid.Column="3">
-            <TextBlock TextAlignment="Center" Background="Aquamarine">Order</TextBlock>
+        <StackPanel Grid.Column="3" Background="White">
+            <TextBlock Height="30" TextAlignment="Center" FontSize="20" Background="Aquamarine">Order</TextBlock>
             <ListBox Name="OrderList"/>
         </StackPanel>
     </Grid>
