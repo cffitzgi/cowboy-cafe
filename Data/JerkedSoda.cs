@@ -64,8 +64,29 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Coverts the object to a string
         /// </summary>
-        /// <returns>The string "Jerked Soda" with the Flavor and Size in the next line.</returns>
-        public override string ToString() { return "Jerked Soda\n\t"
-                + Flavor.ToString() + "\n\t" + Size.ToString(); }
+        /// <returns>The string "Jerked Soda" with the Flavor and Size before.</returns>
+        public override string ToString() 
+        {
+            string flavor;
+            switch(Flavor)
+            {
+                case (SodaFlavor.BirchBeer):
+                    flavor = " Birch Beer";
+                    break;
+                case (SodaFlavor.CreamSoda):
+                    flavor = " Cream Soda";
+                    break;
+                case (SodaFlavor.OrangeSoda):
+                    flavor = " Orange Soda";
+                    break;
+                case (SodaFlavor.RootBeer):
+                    flavor = " Root Beer";
+                    break;
+                default:
+                    flavor = " Sarsparilla";
+                    break;
+            }
+            return Size.ToString() + flavor + " Jerked Soda"; 
+        }
     }
 }

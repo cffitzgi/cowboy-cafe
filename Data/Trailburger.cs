@@ -1,4 +1,4 @@
-﻿/* Trailburger.cs
+﻿/* TrailBurger.cs
  * Author: Cashel FitzGIbbons
  */
 using System;
@@ -9,7 +9,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Trail Burger entree
     /// </summary>
-    public class Trailburger : Entree
+    public class TrailBurger : Entree
     {
         /// <summary>
         /// If the burger comes on a bun
@@ -69,8 +69,8 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Coverts the object to a string
         /// </summary>
-        /// <returns>The string "Trailburger"</returns>
-        public override string ToString() { return "Trailburger"; }
+        /// <returns>The string "Trail Burger"</returns>
+        public override string ToString() { return "Trail Burger"; }
     }
 }
 

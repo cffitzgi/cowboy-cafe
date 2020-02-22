@@ -46,7 +46,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Coverts the object to a string
         /// </summary>
-        /// <returns>The string "Pan De Campo" with the size in the next line.</returns>
-        public override string ToString() { return "Pan De Campo\n\t" + Size.ToString(); }
+        /// <returns>The string "Pan De Campo" with the size before.</returns>
+        public override string ToString() { return Size.ToString() + " Pan de Campo"; }
     }
 }

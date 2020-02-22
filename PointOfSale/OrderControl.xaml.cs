@@ -95,7 +95,7 @@ namespace PointOfSale
         /// <param name="e">Argument</param>
         private void AddTrailBurger_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new Trailburger());
+            OrderList.Items.Add(new TrailBurger());
         }
 
  // SIDE CLICK EVENT 

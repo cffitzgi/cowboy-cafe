@@ -45,7 +45,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Coverts the object to a string
         /// </summary>
-        /// <returns>The string "Chili Cheese Fries" with the size in the next line.</returns>
-        public override string ToString() { return "Chili Cheese Fries\n\t" + Size.ToString(); }
+        /// <returns>The string "Chili Cheese Fries" with the size before.</returns>
+        public override string ToString() { return Size.ToString() + " Chili Cheese Fries"; }
     }
 }

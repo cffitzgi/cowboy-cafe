@@ -79,7 +79,12 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Coverts the object to a string
         /// </summary>
-        /// <returns>The string "Texas Tea" with the size in the next line.</returns>
-        public override string ToString() { return "Texas Tea\n\t" + Size.ToString(); }
+        /// <returns>The string "Texas Tea" with the size before.</returns>
+        public override string ToString() 
+        {
+            string mod = " Plain";
+            if (Sweet) mod = " Sweet";
+            return Size.ToString() + " Texas" + mod + " Tea"; 
+        }
     }
 }
