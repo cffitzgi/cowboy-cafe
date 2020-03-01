@@ -22,8 +22,6 @@ namespace PointOfSale
         public OrderSummaryControl()
         {
             InitializeComponent();
-
-            //if (DataContext is Order order) OrderTitle.Text = DataContext.ToString();
         }
     }
 }

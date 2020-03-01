@@ -6,38 +6,40 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="300">
-    <Grid Background="White">
+    <Grid Background="White" Width="300">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="390"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBlock Height="30" Grid.Row="0" TextAlignment="Center" FontWeight="Bold" FontSize="20" Text="{Binding}" Background="Blue"/>
-        <ListBox ItemsSource="{Binding Path=Items}" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="Black">
+        <ListBox ItemsSource="{Binding Path=Items}" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="Black">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1,1,1,1">
-                        <Grid>
+                    <Border BorderBrush="Black" BorderThickness="0,1,0,1">
+                        <Grid Height="20" Width="270">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="225"/>
+                                <ColumnDefinition/>
                                 <ColumnDefinition Width="50"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Text="{Binding}" TextAlignment="Left"/>
                             <Border BorderBrush="DarkGray" BorderThickness="3,0,0,0" Grid.Column="1"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}" TextAlignment="Right" />
-
+                            <TextBlock Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}" TextAlignment="Center" />
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Border Grid.Row="2" BorderBrush="Black" BorderThickness="0,2,0,2"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="225"/>
-                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="75"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Subtotal"  TextAlignment="Left" FontSize="20" FontWeight="Bold"/>
-            <TextBlock Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}" FontSize="15" TextAlignment="Right"/>
+            <TextBlock Grid.Column="0" Text="Subtotal"  TextAlignment="Left" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+            <Border BorderBrush="DarkGray" BorderThickness="3,0,0,0" Grid.Column="1"/>
+            <TextBlock Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}" FontSize="15" TextAlignment="Right" VerticalAlignment="Center"/>
         </Grid>
     </Grid>
        

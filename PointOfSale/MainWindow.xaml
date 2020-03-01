@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="PointOfSale" Height="500" Width="900">
+        Title="PointOfSale" Height="490" Width="900">
     <DockPanel>
-        <local:OrderControl DockPanel.Dock="Right" Width="600"></local:OrderControl>
-        <local:OrderSummaryControl DockPanel.Dock="Left" Width="300"></local:OrderSummaryControl>
+        <local:OrderControl DockPanel.Dock="Right" Width="900"></local:OrderControl>
     </DockPanel>
 </Window>
