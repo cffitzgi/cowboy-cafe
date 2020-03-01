@@ -27,16 +27,31 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Returns to default OrderControl selection menu.
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Arguement</param>
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
-
+// TODO Implement
         }
 
+        /// <summary>
+        /// Discards the current order and creates new empty order.
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Argument</param>
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
         }
-
+        
+        /// <summary>
+        /// Sends the current order and creates new empty order.
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="e">Argument</param>
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();

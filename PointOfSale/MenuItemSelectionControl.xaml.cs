@@ -19,13 +19,16 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
+        /// <summary>
+        /// MenuItemSelectionControl constructor.
+        /// </summary>
         public MenuItemSelectionControl()
         {
             InitializeComponent();
         }
 
 
-        // ENTREE CLICK EVENT \\
+// ENTREE CLICK EVENT \\
         /// <summary>
         /// Click event handler for adding item to order.
         /// </summary>
@@ -97,7 +100,7 @@ namespace PointOfSale
             if (DataContext is Order order) order.Add(new TrailBurger());
         }
 
-        // SIDE CLICK EVENT 
+// SIDE CLICK EVENT 
         /// <summary>
         /// Click event handler for adding item to order.
         /// </summary>
@@ -138,7 +141,7 @@ namespace PointOfSale
             if (DataContext is Order order) order.Add(new PanDeCampo());
         }
 
-        // DRINK CLICK EVENT \\
+// DRINK CLICK EVENT \\
         /// <summary>
         /// Click event handler for adding item to order.
         /// </summary>

@@ -5,19 +5,37 @@ using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// A class representing one order.
+    /// </summary>
     public class Order : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Static variable for number of orders since program has begun.
+        /// </summary>
         private static uint lastOrderNumber = 0;
 
-        public uint OrderNumber = 0;
+        /// <summary>
+        /// The order number of this current order.
+        /// </summary>
+        private uint OrderNumber = 0;
 
+        /// <summary>
+        /// Order constructor.
+        /// </summary>
         public Order() 
         { 
             OrderNumber = lastOrderNumber++; 
         }
 
+        /// <summary>
+        /// Event handler which is invoked if item is added or removed from list.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// The sum of all the items in the order.
+        /// </summary>
         public double Subtotal
         {
             get
@@ -31,10 +49,20 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Private variable which holds the items in the order.
+        /// </summary>
         List<IOrderItem> items = new List<IOrderItem>();
 
+        /// <summary>
+        /// The Enumerable variable for the items in the order.
+        /// </summary>
         public IEnumerable<IOrderItem> Items => items.ToArray();
 
+        /// <summary>
+        /// Adds new item to the order.
+        /// </summary>
+        /// <param name="item">Item to add.</param>
         public void Add(IOrderItem item) 
         {
             if (item == null) return;
@@ -43,6 +71,10 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
 
+        /// <summary>
+        /// Removes item from order.
+        /// </summary>
+        /// <param name="item">Item to remove</param>
         public void Remove(IOrderItem item) 
         {
             if (item == null) return;
@@ -52,6 +84,10 @@ namespace CowboyCafe.Data
 
         }
 
+        /// <summary>
+        /// Overrides the order's ToString.
+        /// </summary>
+        /// <returns>The order number in friendly format.</returns>
         public override string ToString()
         {
             return "Order #" + OrderNumber.ToString();
