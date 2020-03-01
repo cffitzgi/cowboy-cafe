@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="PointOfSale.OrderSummaryControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="390"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <TextBlock Height="30" Grid.Row="0" TextAlignment="Center" FontWeight="Bold" FontSize="20" Text="{Binding}" Background="Blue"/>
+        <ListBox ItemsSource="{Binding Path=Items}" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="Black">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1,1,1,1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="225"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding}" TextAlignment="Left"/>
+                            <Border BorderBrush="DarkGray" BorderThickness="3,0,0,0" Grid.Column="1"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}" TextAlignment="Right" />
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Subtotal"  TextAlignment="Left" FontSize="20" FontWeight="Bold"/>
+            <TextBlock Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}" FontSize="15" TextAlignment="Right"/>
+        </Grid>
+    </Grid>
+       
+</UserControl>

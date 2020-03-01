@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
-    <Grid>
-        <local:OrderControl></local:OrderControl>
-    </Grid>
+        Title="PointOfSale" Height="500" Width="900">
+    <DockPanel>
+        <local:OrderControl DockPanel.Dock="Right" Width="600"></local:OrderControl>
+        <local:OrderSummaryControl DockPanel.Dock="Left" Width="300"></local:OrderSummaryControl>
+    </DockPanel>
 </Window>

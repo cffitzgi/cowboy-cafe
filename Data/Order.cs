@@ -9,7 +9,12 @@ namespace CowboyCafe.Data
     {
         private static uint lastOrderNumber = 0;
 
-        public Order() { lastOrderNumber++; }
+        public uint OrderNumber = 0;
+
+        public Order() 
+        { 
+            OrderNumber = lastOrderNumber++; 
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -45,6 +50,11 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
 
+        }
+
+        public override string ToString()
+        {
+            return "Order #" + OrderNumber.ToString();
         }
     }
 }
