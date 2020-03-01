@@ -9,7 +9,7 @@
     <Grid Background="White" Width="300">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="390"/>
+            <RowDefinition Height="355"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBlock Height="30" Grid.Row="0" TextAlignment="Center" FontWeight="Bold" FontSize="20" Text="{Binding}" Background="Blue"/>

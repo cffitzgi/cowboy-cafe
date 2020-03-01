@@ -18,7 +18,7 @@
     <DockPanel>
         <local:OrderSummaryControl DockPanel.Dock="Left"/>
         <StackPanel>
-            <Grid Height="50">
+            <Grid Height="50" Background="White">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -28,8 +28,7 @@
                 <Button Name="CancelOrderButton" Grid.Column="1" Background="Red" Click="CancelOrderButton_Click">Cancel Order</Button>
                 <Button Name="CompleteOrderButton" Grid.Column="2" Background="LawnGreen" Click="CompleteOrderButton_Click">CompleteOrder</Button>
             </Grid>
-            <local:MenuItemSelectionControl/>
+            <local:MenuItemSelectionControl Height="auto"/>
         </StackPanel>
-        
     </DockPanel>
 </UserControl>
