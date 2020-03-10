@@ -22,8 +22,8 @@
 
         <StackPanel Grid.Column="0">
             <TextBlock TextAlignment="Center" Background="Aquamarine">Entrees</TextBlock>
-            <Button Name="AddAngryChickenButton" Click="AddAngryChickenButton_Click">Angry Chicken</Button>
-            <Button Name="AddCowpokeChiliButton" Click="AddCowpokeChiliButton_Click">Cowpoke Chili</Button>
+            <Button Name="AddAngryChickenButton"  Tag="AngryChicken" Click="OnAddOrderItemButtonClicked">Angry Chicken</Button>
+            <Button Name="AddCowpokeChiliButton" Tag="CowpokeChili" Click="OnAddOrderItemButtonClicked">Cowpoke Chili</Button>
             <Button Name="AddDakotaDoubleBurger" Click="AddDakotaDoubleBurgerButton_Click">Dakota Double Burger</Button>
             <Button Name="AddPecosPulledPork" Click="AddPecosPulledPork_Click">Pecos Pulled Pork</Button>
             <Button Name="AddRustlersRibs" Click="AddRustlersRibs_Click">Rustler's Ribs</Button>

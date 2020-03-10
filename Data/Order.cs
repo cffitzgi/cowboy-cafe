@@ -18,7 +18,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The order number of this current order.
         /// </summary>
-        private uint OrderNumber = 0;
+        public uint OrderNumber = 0;
 
         /// <summary>
         /// Order constructor.
@@ -67,6 +67,13 @@ namespace CowboyCafe.Data
         {
             if (item == null) return;
             items.Add(item);
+// CHANGE THIS THIS JUST MAKES IT WORK FOR NOW
+        if (item is INotifyPropertyChanged pcitem)
+            {
+                pcitem.PropertyChanged += OnItemChanged;
+            }
+// ^ ^ ^ ^ ^ ^ ^ ^ 
+            //item.PropertyChanged += OnItemChanged;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
@@ -79,6 +86,12 @@ namespace CowboyCafe.Data
         {
             if (item == null) return;
             items.Remove(item);
+// CHANGE THIS THIS JUST MAKES IT WORK FOR NOW
+            if (item is INotifyPropertyChanged pcitem)
+            {
+                pcitem.PropertyChanged -= OnItemChanged;
+            }
+// ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
 
@@ -91,6 +104,12 @@ namespace CowboyCafe.Data
         public override string ToString()
         {
             return "Order #" + OrderNumber.ToString();
+        }
+
+        private void OnItemChanged(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            if (e.PropertyName == "Price")  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
         }
     }
 }

@@ -37,7 +37,7 @@ namespace PointOfSale
         /// <param name="e">Arguement</param>
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
-// TODO Implement
+            Container.Child = new MenuItemSelectionControl(); // Can make a new one or can cache the old one which saves a little memory.
         }
 
         /// <summary>
@@ -58,6 +58,11 @@ namespace PointOfSale
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+        }
+
+        public void SwapScreen(FrameworkElement element)
+        {
+            Container.Child = element;
         }
     }
 }
