@@ -39,19 +39,33 @@ namespace PointOfSale
                 {
                     switch (button.Tag)
                     {
-                        /*case "AngryChicken":
-                            var item = new AngryChicken();
-                            order.Add(item);
-                            orderControl?.SwapScreen(new AngryChickenCustomizations());
-                            break;*/
-                        case "CowpokeChili":
-                            var item = new CowpokeChili();
-                            var screen = new CowpokeChiliCustomization();
-                            screen.DataContext = item;
-                            order.Add(item);
-                            orderControl?.SwapScreen(screen);
+                        case "AngryChicken":
+                            {
+                                var item = new AngryChicken();
+                                var screen = new AngryChickenCustomizations();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(new AngryChickenCustomizations());
+                            }
                             break;
-                        //case "DakotaDoubleBurger":
+                        case "CowpokeChili":
+                            {
+                                var item = new CowpokeChili();
+                                var screen = new CowpokeChiliCustomization();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        /*case "DakotaDoubleBurger":
+                            {
+                                var item = new DakotaDoubleBurger();
+                                var screen = new DakotaDoubleBurgerCustomization();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;*/
                     }
                 }
             }
@@ -77,6 +91,7 @@ namespace PointOfSale
         private void AddCowpokeChiliButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order) order.Add(new CowpokeChili());
+
         }
 
         /// <summary>

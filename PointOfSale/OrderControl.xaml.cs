@@ -37,7 +37,7 @@ namespace PointOfSale
         /// <param name="e">Arguement</param>
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
-            Container.Child = new MenuItemSelectionControl(); // Can make a new one or can cache the old one which saves a little memory.
+            Container.Child = new MenuItemSelectionControl(); 
         }
 
         /// <summary>

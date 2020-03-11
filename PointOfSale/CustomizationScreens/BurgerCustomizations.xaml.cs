@@ -10,18 +10,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PointOfSale.ExtensionMethods;
-using CowboyCafe.Data;
-using System.ComponentModel;
 
 namespace PointOfSale.CustomizationScreens
 {
     /// <summary>
-    /// Interaction logic for CowpokeChiliCustomization.xaml
+    /// Interaction logic for BurgerCustomizations.xaml
     /// </summary>
-    public partial class CowpokeChiliCustomization : UserControl
+    public partial class BurgerCustomizations : UserControl
     {
-        public CowpokeChiliCustomization()
+        public BurgerCustomizations()
         {
             InitializeComponent();
         }

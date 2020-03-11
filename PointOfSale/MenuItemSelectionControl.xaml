@@ -24,11 +24,11 @@
             <TextBlock TextAlignment="Center" Background="Aquamarine">Entrees</TextBlock>
             <Button Name="AddAngryChickenButton"  Tag="AngryChicken" Click="OnAddOrderItemButtonClicked">Angry Chicken</Button>
             <Button Name="AddCowpokeChiliButton" Tag="CowpokeChili" Click="OnAddOrderItemButtonClicked">Cowpoke Chili</Button>
-            <Button Name="AddDakotaDoubleBurger" Click="AddDakotaDoubleBurgerButton_Click">Dakota Double Burger</Button>
-            <Button Name="AddPecosPulledPork" Click="AddPecosPulledPork_Click">Pecos Pulled Pork</Button>
-            <Button Name="AddRustlersRibs" Click="AddRustlersRibs_Click">Rustler's Ribs</Button>
-            <Button Name="AddTexasTripleBurger" Click="AddTexasTripleBurger_Click">Texas Triple Burger</Button>
-            <Button Name="AddTrailBurger" Click="AddTrailBurger_Click">TrailBurger</Button>
+            <Button Name="AddDakotaDoubleBurger" Tag="DakotaDoubleBurger" Click="OnAddOrderItemButtonClicked">Dakota Double Burger</Button>
+            <Button Name="AddPecosPulledPork" Tag="PecosPulledPork" Click="OnAddOrderItemButtonClicked">Pecos Pulled Pork</Button>
+            <Button Name="AddRustlersRibs" Tag="RustlersRibs" Click="OnAddOrderItemButtonClicked">Rustler's Ribs</Button>
+            <Button Name="AddTexasTripleBurger" Tag="TexasTripleBurger" Click="OnAddOrderItemButtonClicked">Texas Triple Burger</Button>
+            <Button Name="AddTrailBurger" Tag="TrailBurger" Click="OnAddOrderItemButtonClicked">Trail Burger</Button>
 
 
         </StackPanel>
