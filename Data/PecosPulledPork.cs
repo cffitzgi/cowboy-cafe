@@ -3,24 +3,55 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Pecos Pulled Pork entree
     /// </summary>
-    public class PecosPulledPork : Entree
+    public class PecosPulledPork : Entree, INotifyPropertyChanged
     {
         /// <summary>
-        /// If the pork comes with bread
+        /// The property changed event.
         /// </summary>
-        public bool Bread { get; set; } = true;
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        private bool bread = true;
+        /// <summary>
+        /// If the pork comes with bread.
+        /// </summary>
+        public bool Bread
+        {
+            get { return bread; }
+            set
+            {
+                if (bread != value)
+                {
+                    bread = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bread"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+            }
+        }
+
+        private bool pickle = true;
         /// <summary>
         /// If the pork comes with a pickle
         /// </summary>
-        public bool Pickle { get; set; } = true;
-
+        public bool Pickle
+        {
+            get { return pickle; }
+            set
+            {
+                if (pickle != value)
+                {
+                    pickle = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+            }
+        }
         /// <summary>
         /// The price of the pork
         /// </summary>
