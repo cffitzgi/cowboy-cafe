@@ -1,13 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public class Water : Drink
+    public class Water : Drink, INotifyPropertyChanged
     {
-        // Whether the water is served with a lemon.
-        public bool Lemon { get; set; } = false;
+        /// <summary>
+        /// The property changed event.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private bool lemon = false;
+        /// <summary>
+        /// Whether the water is served with a lemon.
+        /// </summary> 
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                if (lemon != value)
+                {
+                    lemon = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+            }
+        }
 
         /// <summary>
         /// Gets the price of the water

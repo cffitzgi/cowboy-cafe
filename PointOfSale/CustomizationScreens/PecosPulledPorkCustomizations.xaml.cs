@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace PointOfSale.CustomizationScreens
 {
     /// <summary>
-    /// Interaction logic for BurgerCustomizations.xaml
+    /// Interaction logic for PecosPulledPorkCustomizations.xaml
     /// </summary>
-    public partial class BurgerCustomizations : UserControl
+    public partial class PecosPulledPorkCustomizations : UserControl
     {
-        public BurgerCustomizations()
+        public PecosPulledPorkCustomizations()
         {
             InitializeComponent();
         }

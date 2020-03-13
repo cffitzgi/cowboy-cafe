@@ -4,11 +4,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public class BakedBeans : Side
+    public class BakedBeans : Side, INotifyPropertyChanged
     {
+
         /// <summary>
         /// The price of the Baked Beans (depending on the size).
         /// </summary>

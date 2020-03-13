@@ -45,7 +45,7 @@ namespace PointOfSale
                                 var screen = new AngryChickenCustomizations();
                                 screen.DataContext = item;
                                 order.Add(item);
-                                orderControl?.SwapScreen(new AngryChickenCustomizations());
+                                orderControl?.SwapScreen(screen);
                             }
                             break;
                         case "CowpokeChili":
@@ -57,15 +57,15 @@ namespace PointOfSale
                                 orderControl?.SwapScreen(screen);
                             }
                             break;
-                        /*case "DakotaDoubleBurger":
+                        case "DakotaDoubleBurger":
                             {
                                 var item = new DakotaDoubleBurger();
-                                var screen = new DakotaDoubleBurgerCustomization();
+                                var screen = new DakotaDoubleCustomizations();
                                 screen.DataContext = item;
                                 order.Add(item);
                                 orderControl?.SwapScreen(screen);
                             }
-                            break;*/
+                            break;
                     }
                 }
             }

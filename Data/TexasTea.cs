@@ -1,20 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public class TexasTea : Drink
+    public class TexasTea : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The property changed event.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private bool sweet = true;
         /// <summary>
         /// Whether the tea is sweet.
         /// </summary>
-        public bool Sweet { get; set; } = true;
+        public bool Sweet
+        {
+            get { return sweet; }
+            set
+            {
+                if (sweet != value)
+                {
+                    sweet = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sweet"));                }
+            }
+        }
 
+        private bool lemon = false;
         /// <summary>
         /// Whether the tea is served with a lemon.
         /// </summary> 
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                if (lemon != value)
+                {
+                    lemon = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+            }
+        }
 
         /// <summary>
         /// Gets the price of the tea
@@ -82,9 +112,15 @@ namespace CowboyCafe.Data
         /// <returns>The string "Texas Tea" with the size before.</returns>
         public override string ToString() 
         {
-            string mod = " Plain";
-            if (Sweet) mod = " Sweet";
-            return Size.ToString() + " Texas" + mod + " Tea"; 
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Size.ToString());
+            sb.Append(" Texas");
+            if (Sweet) sb.Append(" Sweet");
+            else sb.Append(" Plain");
+            sb.Append(" Tea");
+
+            return sb.ToString();
         }
     }
 }

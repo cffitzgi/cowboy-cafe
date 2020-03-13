@@ -1,25 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public class CowboyCoffee : Drink
+    public class CowboyCoffee : Drink, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The property changed event.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        private bool roomForCream = false;
         /// <summary>
         /// Whether there should be room for cream.
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream
+        {
+            get { return roomForCream; }
+            set
+            {
+                if (roomForCream != value)
+                {
+                    roomForCream = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+            }
+        }
 
+        private bool decaf = false;
         /// <summary>
         /// Whether the coffee is decaf.
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get { return decaf; }
+            set
+            {
+                if (decaf != value)
+                {
+                    decaf = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+                }
+            }
+        }
 
+        private bool ice = false;
         /// <summary>
         /// Bool for whether coffee has ice.
         /// </summary>
-        public override bool Ice { get; set; } = false;
+        public override bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                if (ice != value)
+                {
+                    ice = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+            }
+        }
 
         /// <summary>
         /// Gets the price of the coffee
@@ -77,9 +122,13 @@ namespace CowboyCafe.Data
         /// <returns>The string "Cowboy Coffee" with the size before.</returns>
         public override string ToString() 
         {
-            string mod = "";
-            if (Decaf) mod = " Decaf";
-            return Size.ToString() + mod + " Cowboy Coffee"; 
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Size.ToString());
+            if (Decaf) sb.Append(" Decaf");
+            sb.Append(" Cowboy Coffee");
+
+            return sb.ToString();
         }
     }
 }

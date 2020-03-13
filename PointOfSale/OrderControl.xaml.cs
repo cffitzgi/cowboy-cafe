@@ -48,6 +48,7 @@ namespace PointOfSale
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+            Container.Child = new MenuItemSelectionControl();
         }
         
         /// <summary>
@@ -58,6 +59,7 @@ namespace PointOfSale
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+            Container.Child = new MenuItemSelectionControl();
         }
 
         public void SwapScreen(FrameworkElement element)
