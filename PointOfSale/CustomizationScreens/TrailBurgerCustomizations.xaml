@@ -11,8 +11,9 @@
         <Style x:Key="Panel" TargetType="TextBlock">
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Margin" Value="30"/>
+            <Setter Property="Margin" Value="25"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="100"/>
         </Style>
         <Style TargetType="CheckBox">
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -21,24 +22,27 @@
 
 
     <WrapPanel>
-        <TextBlock FontSize="40" Margin="20,20,100,20">Chili Customizations</TextBlock>
+        <TextBlock FontSize="30" Margin="20,20,100,20">Trail Burger Customizations</TextBlock>
 
+        <TextBlock Style="{StaticResource Panel}">
+            <CheckBox IsChecked="{Binding Path=Bun}"/>
+            <TextBlock Text="Bun"/>
+        </TextBlock>
+        <TextBlock Style="{StaticResource Panel}">
+            <CheckBox IsChecked="{Binding Path=Ketchup}"/>
+            <TextBlock Text="Ketchup"/>
+        </TextBlock>
+        <TextBlock Style="{StaticResource Panel}">
+            <CheckBox IsChecked="{Binding Path=Mustard}"/>
+            <TextBlock Text="Mustard"/>
+        </TextBlock>
+        <TextBlock Style="{StaticResource Panel}">
+            <CheckBox IsChecked="{Binding Path=Pickle}"/>
+            <TextBlock Text="Pickle"/>
+        </TextBlock>
         <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Cheese}"/>
             <TextBlock Text="Cheese"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
-            <CheckBox IsChecked="{Binding Path=SourCream}"/>
-            <TextBlock Text="Sour Cream"/>
-        </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
-            <CheckBox IsChecked="{Binding Path=GreenOnions}"/>
-            <TextBlock Text="Green Onions"/>
-        </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
-            <CheckBox IsChecked="{Binding Path=TortillaStrips}"/>
-            <TextBlock Text="Tortilla Strips"/>
-        </TextBlock>
-
     </WrapPanel>
 </UserControl>

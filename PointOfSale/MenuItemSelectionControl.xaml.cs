@@ -60,7 +60,40 @@ namespace PointOfSale
                         case "DakotaDoubleBurger":
                             {
                                 var item = new DakotaDoubleBurger();
-                                var screen = new DakotaDoubleCustomizations();
+                                var screen = new DakotaDoubleBurgerCustomizations();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        case "PecosPulledPork":
+                            {
+                                var item = new PecosPulledPork();
+                                var screen = new PecosPulledPorkCustomizations();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        case "RustlersRibs":
+                            {
+                                var item = new RustlersRibs();
+                                order.Add(item);
+                            }
+                            break;
+                        case "TexasTripleBurger":
+                            {
+                                var item = new TexasTripleBurger();
+                                var screen = new TexasTripleBurgerCustomizations();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        case "TrailBurger":
+                            {
+                                var item = new TrailBurger();
+                                var screen = new TrailBurgerCustomizations();
                                 screen.DataContext = item;
                                 order.Add(item);
                                 orderControl?.SwapScreen(screen);
