@@ -20,18 +20,20 @@
         </Style>
     </UserControl.Resources>
 
-
-    <WrapPanel>
+    <StackPanel>
         <TextBlock FontSize="35" Margin="20">Pecos Pulled Pork Customizations</TextBlock>
 
-        <TextBlock Style="{StaticResource Panel}">
+        <WrapPanel>
+
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Bread}"/>
             <TextBlock Text="Bread"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Pickle}"/>
             <TextBlock Text="Pickle"/>
         </TextBlock>
 
-    </WrapPanel>
+        </WrapPanel>
+    </StackPanel>
 </UserControl>

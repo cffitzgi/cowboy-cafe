@@ -21,26 +21,28 @@
         </Style>
     </UserControl.Resources>
 
-    
-    <WrapPanel>
-        <TextBlock FontSize="40" Margin="20,20,100,20">Chili Customizations</TextBlock>
-        
-        <TextBlock Style="{StaticResource Panel}">
+
+    <StackPanel>
+        <TextBlock FontSize="40" Margin="20,20,100,20">Cowpoke Chili Customizations</TextBlock>
+        <WrapPanel>
+
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Cheese}"/>
             <TextBlock Text="Cheese"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=SourCream}"/>
             <TextBlock Text="Sour Cream"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=GreenOnions}"/>
             <TextBlock Text="Green Onions"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=TortillaStrips}"/>
             <TextBlock Text="Tortilla Strips"/>
         </TextBlock>
-        
-    </WrapPanel>
+
+        </WrapPanel>
+    </StackPanel>
 </UserControl>

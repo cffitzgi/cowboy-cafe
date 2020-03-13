@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.CustomizationScreens.TexasTripleBurgerCustomizations"
+﻿<UserControl x:Class="PointOfSale.CustomizationScreens.DakotaDoubleBurgerCustomizations"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PointOfSale.CustomizationScreens"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-
+    
     <UserControl.Resources>
         <Style x:Key="Panel" TargetType="TextBlock">
             <Setter Property="FontSize" Value="15"/>
@@ -20,50 +20,42 @@
         </Style>
     </UserControl.Resources>
 
-
-    <WrapPanel>
+    <StackPanel>
         <TextBlock FontSize="30" Margin="20">Dakota Double Burger Customizations</TextBlock>
-
-        <TextBlock Style="{StaticResource Panel}">
+        <WrapPanel>
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Bun}"/>
             <TextBlock Text="Bun"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Ketchup}"/>
             <TextBlock Text="Ketchup"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Mustard}"/>
             <TextBlock Text="Mustard"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Pickle}"/>
             <TextBlock Text="Pickle"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Cheese}"/>
             <TextBlock Text="Cheese"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Tomato}"/>
             <TextBlock Text="Tomato"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Lettuce}"/>
             <TextBlock Text="Lettuce"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
+            <TextBlock Style="{StaticResource Panel}">
             <CheckBox IsChecked="{Binding Path=Mayo}"/>
             <TextBlock Text="Mayo"/>
         </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
-            <CheckBox IsChecked="{Binding Path=Bacon}"/>
-            <TextBlock Text="Bacon"/>
-        </TextBlock>
-        <TextBlock Style="{StaticResource Panel}">
-            <CheckBox IsChecked="{Binding Path=Egg}"/>
-            <TextBlock Text="Egg"/>
-        </TextBlock>
 
-    </WrapPanel>
+        </WrapPanel>
+    </StackPanel>
 </UserControl>

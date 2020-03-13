@@ -14,7 +14,7 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Height="30" Grid.Row="0" TextAlignment="Center" FontWeight="Bold" FontSize="20" Background="Blue" Text="{Binding Path=OrderNumber, StringFormat=Order {0}}"/>
+        <TextBlock Height="30" Grid.Row="0" TextAlignment="Center" FontWeight="Bold" FontSize="20" Background="Blue" Text="{Binding Path=OrderNumber, StringFormat=Order {}}"/>
         
         <ListBox ItemsSource="{Binding Path=Items}" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Visible"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="Black">
