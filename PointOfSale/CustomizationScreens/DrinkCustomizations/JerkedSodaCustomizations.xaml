@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="PointOfSale.CustomizationScreens.DrinkCustomizations.JerkedSodaCustomizations"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.CustomizationScreens.DrinkCustomizations"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+
+        <Style x:Key="Panel" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="25"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+
+        <Style TargetType="CheckBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <TextBlock Name="TitleBlock" FontSize="35" Width="550" Margin="20" Text="Jerked Soda Customizations"/>
+        <WrapPanel>
+            <Button Name="SmallButton" Tag="Small" Click="OnSizeSelection" Width="150" Margin="25">Small</Button>
+            <Button Name="MediumButton" Tag="Medium" Click="OnSizeSelection" Width="150" Margin="25">Medium</Button>
+            <Button Name="LargeButton" Tag="Large" Click="OnSizeSelection" Width="150" Margin="25">Large</Button>
+        </WrapPanel>
+        <WrapPanel>
+            <Button Name="BirchBeerButton" Tag="BirchBeer" Click="OnFlavorSelection">Birch Beer</Button>
+            <Button Name="CreamSodaButton" Tag="CreamSoda" Click="OnFlavorSelection">Cream Soda</Button>
+            <Button Name="OrangeSodaButton" Tag="OrangeSoda" Click="OnFlavorSelection">Orange Soda</Button>
+            <Button Name="RootBeerButton" Tag="RootBeer" Click="OnFlavorSelection">Root Beer</Button>
+            <Button Name="SarsparillaButton" Tag="Sarsparilla" Click="OnFlavorSelection">Sarsparilla</Button>
+
+        </WrapPanel>
+        <WrapPanel>
+            <TextBlock Style="{StaticResource Panel}">
+            <CheckBox IsChecked="{Binding Path=Ice}"/>
+            <TextBlock Text="Ice"/>
+        </TextBlock>
+
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

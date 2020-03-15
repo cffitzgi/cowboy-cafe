@@ -41,10 +41,10 @@
         </StackPanel>
         <StackPanel Grid.Column="2">
             <TextBlock TextAlignment="Center" Background="Aquamarine">Drinks</TextBlock>
-            <Button Name="AddCowboyCoffee" Click="AddCowboyCoffee_Click">Cowboy Coffee</Button>
-            <Button Name="AddJerkedSoda" Click="AddJerkedSoda_Click">Jerked Soda</Button>
-            <Button Name="AddTexasTea" Click="AddTexasTea_Click">Texas Tea</Button>
-            <Button Name="AddWater" Click="AddWater_Click">Water</Button>
+            <Button Name="AddCowboyCoffee" Tag="CowboyCoffee" Click="OnAddOrderItemButtonClicked">Cowboy Coffee</Button>
+            <Button Name="AddJerkedSoda" Tag="JerkedSoda" Click="OnAddOrderItemButtonClicked">Jerked Soda</Button>
+            <Button Name="AddTexasTea" Tag="TexasTea" Click="OnAddOrderItemButtonClicked">Texas Tea</Button>
+            <Button Name="AddWater" Tag="Water" Click="OnAddOrderItemButtonClicked">Water</Button>
 
         </StackPanel>
 

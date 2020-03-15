@@ -21,7 +21,5 @@
             <Button Name="MediumButton" Tag="Medium" Click="OnSizeSelection">Medium</Button>
             <Button Name="LargeButton" Tag="Large" Click="OnSizeSelection">Large</Button>
         </WrapPanel>
-
-
     </StackPanel>
 </UserControl>

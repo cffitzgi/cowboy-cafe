@@ -10,7 +10,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The property changed event.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
 
         private SodaFlavor flavor;

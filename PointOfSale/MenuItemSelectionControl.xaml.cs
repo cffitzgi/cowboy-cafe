@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
 using PointOfSale.CustomizationScreens;
+using PointOfSale.CustomizationScreens.DrinkCustomizations;
 using PointOfSale.CustomizationScreens.SideCustomizations;
 using PointOfSale.ExtensionMethods;
 
@@ -134,6 +135,43 @@ namespace PointOfSale
                             {
                                 var item = new PanDeCampo();
                                 var screen = new SideCustomizations("Pan De Campo");
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        // Drinks
+                        case "CowboyCoffee":
+                            {
+                                var item = new CowboyCoffee();
+                                var screen = new CowboyCoffeeCustomizations();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        case "JerkedSoda":
+                            {
+                                var item = new JerkedSoda();
+                                var screen = new JerkedSodaCustomizations();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        case "TexasTea":
+                            {
+                                var item = new TexasTea();
+                                var screen = new TexasTeaCustomizations();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        case "Water":
+                            {
+                                var item = new Water();
+                                var screen = new WaterCustomizations();
                                 screen.DataContext = item;
                                 order.Add(item);
                                 orderControl?.SwapScreen(screen);

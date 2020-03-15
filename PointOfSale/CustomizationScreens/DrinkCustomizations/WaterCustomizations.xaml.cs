@@ -11,42 +11,37 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
-using PointOfSale.ExtensionMethods;
 
-namespace PointOfSale.CustomizationScreens.SideCustomizations
+namespace PointOfSale.CustomizationScreens.DrinkCustomizations
 {
     /// <summary>
-    /// Interaction logic for SideCustomizations.xaml
+    /// Interaction logic for WaterCustomizations.xaml
     /// </summary>
-    public partial class SideCustomizations : UserControl
+    public partial class WaterCustomizations : UserControl
     {
-        public SideCustomizations()
+        public WaterCustomizations()
         {
             InitializeComponent();
         }
 
-        public SideCustomizations(string sideName)
-        {
-            InitializeComponent();
-            TitleBlock.Text = sideName + " Customizations";
-        }
+
 
         void OnSizeSelection(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Side side)
+            if (DataContext is Drink water)
             {
                 if (sender is Button button)
                 {
-                    switch(button.Tag)
+                    switch (button.Tag)
                     {
                         case "Small":
-                            side.Size = CowboyCafe.Data.Size.Small;
+                            water.Size = CowboyCafe.Data.Size.Small;
                             break;
                         case "Medium":
-                            side.Size = CowboyCafe.Data.Size.Medium;
+                            water.Size = CowboyCafe.Data.Size.Medium;
                             break;
                         case "Large":
-                            side.Size = CowboyCafe.Data.Size.Large;
+                            water.Size = CowboyCafe.Data.Size.Large;
                             break;
                     }
                 }
