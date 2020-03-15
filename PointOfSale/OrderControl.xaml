@@ -11,14 +11,14 @@
         <Style TargetType="Button">
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="5,0,5,5"/>
         </Style>
     </UserControl.Resources>
     
     <DockPanel>
         <local:OrderSummaryControl DockPanel.Dock="Left" />
         <StackPanel>
-            <Grid Height="50" Background="White">
+            <Grid Height="47" Background="White">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -29,7 +29,7 @@
                 <Button Name="CompleteOrderButton" Grid.Column="2" Background="LawnGreen" Click="CompleteOrderButton_Click">Complete Order</Button>
             </Grid>
             <Border Name="Container">
-                <local:MenuItemSelectionControl Height="auto"/>
+                <local:MenuItemSelectionControl/>
             </Border>
         </StackPanel>
     </DockPanel>

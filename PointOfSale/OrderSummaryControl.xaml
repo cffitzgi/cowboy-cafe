@@ -31,7 +31,7 @@
                                 <Button Click="OnRecustomizeClick">
                                     <Button.Template>
                                         <ControlTemplate>
-                                            <TextBlock Name="ItemBox" FontWeight="Normal" FontSize="15" Grid.Column="0" Text="{Binding}" TextAlignment="Left"/>
+                                            <TextBlock Name="ItemBox" FontWeight="Normal" TextWrapping="WrapWithOverflow" FontSize="12" Grid.Column="0" Text="{Binding}" TextAlignment="Left"/>
                                         </ControlTemplate>
                                     </Button.Template>
                                 </Button>
@@ -40,9 +40,9 @@
                                 </Button>
                                 
                                 <Border BorderBrush="DarkGray" BorderThickness="3,0,0,0" Grid.Column="2"/>
-                                <TextBlock Grid.Column="2" Text="{Binding Path=Price, StringFormat=c}" TextAlignment="Center" />
+                                <TextBlock Grid.Column="2" Text="{Binding Path=Price, StringFormat=c}" TextAlignment="Center" VerticalAlignment="Center"/>
                             </Grid>
-                            <ListBox ItemsSource="{Binding Path=SpecialInstructions}"/>
+                            <ListBox FontSize="11" ItemsSource="{Binding Path=SpecialInstructions}"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
