@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
 using PointOfSale.CustomizationScreens;
+using PointOfSale.CustomizationScreens.SideCustomizations;
 using PointOfSale.ExtensionMethods;
 
 namespace PointOfSale
@@ -39,6 +40,7 @@ namespace PointOfSale
                 {
                     switch (button.Tag)
                     {
+                        //Entrees
                         case "AngryChicken":
                             {
                                 var item = new AngryChicken();
@@ -94,6 +96,44 @@ namespace PointOfSale
                             {
                                 var item = new TrailBurger();
                                 var screen = new TrailBurgerCustomizations();
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+
+                        //Sides
+                        case "BakedBeans":
+                            {
+                                var item = new BakedBeans();
+                                var screen = new SideCustomizations("Baked Beans");
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        case "ChiliCheeseFries":
+                            {
+                                var item = new ChiliCheeseFries();
+                                var screen = new SideCustomizations("Chili Cheese Fries");
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        case "CornDodgers":
+                            {
+                                var item = new CornDodgers();
+                                var screen = new SideCustomizations("Corn Dodgers");
+                                screen.DataContext = item;
+                                order.Add(item);
+                                orderControl?.SwapScreen(screen);
+                            }
+                            break;
+                        case "PanDeCampo":
+                            {
+                                var item = new PanDeCampo();
+                                var screen = new SideCustomizations("Pan De Campo");
                                 screen.DataContext = item;
                                 order.Add(item);
                                 orderControl?.SwapScreen(screen);
