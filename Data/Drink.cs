@@ -36,16 +36,6 @@ namespace CowboyCafe.Data
             }
         }
 
-        /// <summary>
-        /// Gets the price of the drink
-        /// </summary>
-        public abstract double Price { get; }
-
-        /// <summary>
-        /// Gets the calories of the drink
-        /// </summary>
-        public abstract uint Calories { get; }
-
         private bool ice = true;
         /// <summary>
         /// Bool for whether drink has ice.
@@ -62,6 +52,17 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        /// <summary>
+        /// Gets the price of the drink
+        /// </summary>
+        public abstract double Price { get; }
+
+        /// <summary>
+        /// Gets the calories of the drink
+        /// </summary>
+        public abstract uint Calories { get; }
+
 
         /// <summary>
         /// Gets the special instructions for the drink.

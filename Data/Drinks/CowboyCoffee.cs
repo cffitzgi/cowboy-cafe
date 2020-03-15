@@ -10,7 +10,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The property changed event.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override event PropertyChangedEventHandler PropertyChanged;
 
 
         private bool roomForCream = false;
@@ -62,6 +62,25 @@ namespace CowboyCafe.Data
                     ice = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                }
+            }
+        }
+
+        private Size size = Size.Small;
+        /// <summary>
+        /// Gets the size of the coffee
+        /// </summary>
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                if (size != value)
+                {
+                    size = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 }
             }
         }

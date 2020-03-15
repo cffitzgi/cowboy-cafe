@@ -26,12 +26,19 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="50"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="{Binding}" TextAlignment="Left"/>
-                                <Border BorderBrush="DarkGray" BorderThickness="3,0,0,0" Grid.Column="1"/>
-                                <TextBlock Grid.Column="1" Text="{Binding Path=Price, StringFormat=c}" TextAlignment="Center" />
+                                <Button Click="OnRecustomizeClick">
+                                    <TextBlock Name="ItemBox"  Grid.Column="0" Text="{Binding}" TextAlignment="Left" MouseLeftButtonDown="OnRecustomize"/>
+                                </Button>
+                                <Button Grid.Column="1" Width="20" Height="20" DataContext="{Binding}" Click="OnDeleteItemClick">
+                                    <TextBlock FontSize="10" TextAlignment="Center" VerticalAlignment="Center">x</TextBlock>
+                                </Button>
+                                
+                                <Border BorderBrush="DarkGray" BorderThickness="3,0,0,0" Grid.Column="2"/>
+                                <TextBlock Grid.Column="2" Text="{Binding Path=Price, StringFormat=c}" TextAlignment="Center" />
                             </Grid>
-                            <ListView ItemsSource="{Binding Path=SpecialInstructions}"/>
+                            <ListBox ItemsSource="{Binding Path=SpecialInstructions}"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
