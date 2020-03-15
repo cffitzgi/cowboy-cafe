@@ -20,12 +20,19 @@ namespace PointOfSale.CustomizationScreens.DrinkCustomizations
     /// </summary>
     public partial class CowboyCoffeeCustomizations : UserControl
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CowboyCoffeeCustomizations()
         {
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Size selection button handler.
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Arguments</param>
         void OnSizeSelection(object sender, RoutedEventArgs args)
         {
             if (DataContext is Drink coffee)

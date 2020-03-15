@@ -21,6 +21,9 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class CowpokeChiliCustomizations : UserControl
     {
+        /// <summary>
+        /// Customization screen constructor
+        /// </summary>
         public CowpokeChiliCustomizations()
         {
             InitializeComponent();

@@ -19,11 +19,19 @@ namespace PointOfSale.CustomizationScreens.DrinkCustomizations
     /// </summary>
     public partial class TexasTeaCustomizations : UserControl
     {
+        /// <summary>
+        /// Customization screen constructor
+        /// </summary>
         public TexasTeaCustomizations()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Size selection button handler.
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Arguments</param>
         void OnSizeSelection(object sender, RoutedEventArgs args)
         {
             if (DataContext is Drink tea)

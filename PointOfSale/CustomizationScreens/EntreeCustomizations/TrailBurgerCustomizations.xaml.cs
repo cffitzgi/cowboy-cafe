@@ -18,6 +18,9 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class TrailBurgerCustomizations : UserControl
     {
+        /// <summary>
+        /// Customization screen constructor
+        /// </summary>
         public TrailBurgerCustomizations()
         {
             InitializeComponent();

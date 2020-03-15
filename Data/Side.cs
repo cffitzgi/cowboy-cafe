@@ -46,6 +46,9 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
+        /// <summary>
+        /// Special Instructions of Side
+        /// </summary>
         public virtual List<string> SpecialInstructions { get; }
     }
 }

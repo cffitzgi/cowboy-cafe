@@ -31,6 +31,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles item deletion.
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Arguments</param>
         public void OnDeleteItemClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -47,6 +52,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Opens corresponding customization screen when item is clicked on
+        /// </summary>
+        /// <param name="sender">Button containing item in summary display</param>
+        /// <param name="args">Arguments</param>
         private void OnRecustomizeClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)

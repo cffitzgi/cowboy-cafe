@@ -18,6 +18,9 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class AngryChickenCustomizations : UserControl
     {
+        /// <summary>
+        /// Customization screen constructor
+        /// </summary>
         public AngryChickenCustomizations()
         {
             InitializeComponent();

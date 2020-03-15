@@ -19,12 +19,19 @@ namespace PointOfSale.CustomizationScreens.DrinkCustomizations
     /// </summary>
     public partial class JerkedSodaCustomizations : UserControl
     {
+        /// <summary>
+        /// Customization screen constructor
+        /// </summary>
         public JerkedSodaCustomizations()
         {
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Size selection button handler.
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Arguments</param>
         void OnSizeSelection(object sender, RoutedEventArgs args)
         {
             if (DataContext is JerkedSoda soda)
@@ -47,7 +54,11 @@ namespace PointOfSale.CustomizationScreens.DrinkCustomizations
             }
         }
 
-
+        /// <summary>
+        /// Flavor Selection button handler.
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Arguments</param>
         void OnFlavorSelection(object sender, RoutedEventArgs args)
         {
             if (DataContext is JerkedSoda soda)

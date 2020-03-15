@@ -31,6 +31,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Adds item to order, based on sender Button's tag
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Arguments</param>
         void OnAddOrderItemButtonClicked(object sender, RoutedEventArgs args)
         {
             var orderControl = this.FindAncestor<OrderControl>();
@@ -140,6 +145,7 @@ namespace PointOfSale
                                 orderControl?.SwapScreen(screen);
                             }
                             break;
+
                         // Drinks
                         case "CowboyCoffee":
                             {

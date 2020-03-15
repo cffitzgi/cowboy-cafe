@@ -18,6 +18,9 @@ namespace PointOfSale.CustomizationScreens
     /// </summary>
     public partial class DakotaDoubleBurgerCustomizations : UserControl
     {
+        /// <summary>
+        /// Customization screen constructor
+        /// </summary>
         public DakotaDoubleBurgerCustomizations()
         {
             InitializeComponent();

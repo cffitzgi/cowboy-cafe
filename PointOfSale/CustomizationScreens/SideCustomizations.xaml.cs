@@ -20,17 +20,29 @@ namespace PointOfSale.CustomizationScreens.SideCustomizations
     /// </summary>
     public partial class SideCustomizations : UserControl
     {
+        /// <summary>
+        /// Customization screen constructor
+        /// </summary>
         public SideCustomizations()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Customization screen constructor with Side name parameter.
+        /// </summary>
+        /// <param name="sideName"></param>
         public SideCustomizations(string sideName)
         {
             InitializeComponent();
             TitleBlock.Text = sideName + " Customizations";
         }
 
+        /// <summary>
+        /// Size selection button handler.
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Arguments</param>
         void OnSizeSelection(object sender, RoutedEventArgs args)
         {
             if (DataContext is Side side)
