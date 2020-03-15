@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.CustomizationScreens.CowpokeChiliCustomization"
+﻿<UserControl x:Class="PointOfSale.CustomizationScreens.CowpokeChiliCustomizations"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
 
-   
+
     <UserControl.Resources>
         <Style x:Key="Panel" TargetType="TextBlock">
             <Setter Property="FontSize" Value="15"/>

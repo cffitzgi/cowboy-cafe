@@ -54,7 +54,7 @@ namespace PointOfSale
                         case "CowpokeChili":
                             {
                                 var item = new CowpokeChili();
-                                var screen = new CowpokeChiliCustomization();
+                                var screen = new CowpokeChiliCustomizations();
                                 screen.DataContext = item;
                                 order.Add(item);
                                 orderControl?.SwapScreen(screen);
