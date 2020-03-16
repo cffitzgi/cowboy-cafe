@@ -11,8 +11,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A base class representing an entree
     /// </summary>
-    public abstract class Entree : IOrderItem
+    public abstract class Entree : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The property changed event.
+        /// </summary>
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets the price of the entree
         /// </summary>

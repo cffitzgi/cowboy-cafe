@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
-    public class BakedBeans : Side, INotifyPropertyChanged
+    public class BakedBeans : Side
     {
 
         /// <summary>
