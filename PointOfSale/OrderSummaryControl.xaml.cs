@@ -11,9 +11,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Data.Entrees;
+using CowboyCafe.Data.Sides;
+using CowboyCafe.Data.Drinks;
 using PointOfSale.CustomizationScreens;
 using PointOfSale.ExtensionMethods;
-using PointOfSale.CustomizationScreens.SideCustomizations;
+using PointOfSale.CustomizationScreens.EntreeCustomizations;
 using PointOfSale.CustomizationScreens.DrinkCustomizations;
 
 namespace PointOfSale

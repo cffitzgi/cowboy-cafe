@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale.CustomizationScreens
+namespace PointOfSale.CustomizationScreens.EntreeCustomizations
 {
     /// <summary>
     /// Interaction logic for TexasTripleBurgerCustomizations.xaml

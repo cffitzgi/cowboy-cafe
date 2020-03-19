@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace CowboyCafe.Data
+namespace CowboyCafe.Data.Entrees
 {
     /// <summary>
     /// A class representing the Texas Triple Burger entree

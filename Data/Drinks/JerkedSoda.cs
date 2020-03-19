@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
-namespace CowboyCafe.Data
+namespace CowboyCafe.Data.Drinks
 {
     public class JerkedSoda : Drink, INotifyPropertyChanged
     {

@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 using CowboyCafe.Data;
 using PointOfSale.ExtensionMethods;
 
-namespace PointOfSale.CustomizationScreens.SideCustomizations
+namespace PointOfSale.CustomizationScreens
 {
     /// <summary>
     /// Interaction logic for SideCustomizations.xaml

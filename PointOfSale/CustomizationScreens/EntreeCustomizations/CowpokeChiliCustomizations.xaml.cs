@@ -14,7 +14,7 @@ using PointOfSale.ExtensionMethods;
 using CowboyCafe.Data;
 using System.ComponentModel;
 
-namespace PointOfSale.CustomizationScreens
+namespace PointOfSale.CustomizationScreens.EntreeCustomizations
 {
     /// <summary>
     /// Interaction logic for CowpokeChiliCustomization.xaml

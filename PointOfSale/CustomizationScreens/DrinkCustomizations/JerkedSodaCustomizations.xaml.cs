@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Data.Drinks;
 
 namespace PointOfSale.CustomizationScreens.DrinkCustomizations
 {

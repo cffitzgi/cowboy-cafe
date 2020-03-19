@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
-namespace CowboyCafe.Data
+namespace CowboyCafe.Data.Sides
 {
     public class BakedBeans : Side
     {
