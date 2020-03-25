@@ -35,8 +35,8 @@
                                         </ControlTemplate>
                                     </Button.Template>
                                 </Button>
-                                <Button Grid.Column="1" Width="20" Height="20" DataContext="{Binding}" Click="OnDeleteItemClick">
-                                    <TextBlock FontSize="10" TextAlignment="Center" VerticalAlignment="Center">x</TextBlock>
+                                <Button Background="Red" Grid.Column="1" Width="20" Height="20" DataContext="{Binding}" Click="OnDeleteItemClick">
+                                    <TextBlock Foreground="White" FontSize="10" TextAlignment="Center" VerticalAlignment="Center">x</TextBlock>
                                 </Button>
                                 
                                 <Border BorderBrush="DarkGray" BorderThickness="3,0,0,0" Grid.Column="2"/>
