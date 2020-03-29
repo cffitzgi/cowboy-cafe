@@ -43,8 +43,6 @@ namespace CowboyCafe.Data.Drinks
                 {
                     size = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 }
             }
         }
@@ -62,6 +60,7 @@ namespace CowboyCafe.Data.Drinks
                 {
                     ice = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }

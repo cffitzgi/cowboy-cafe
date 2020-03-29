@@ -38,5 +38,34 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             Assert.PropertyChanged(coffee, "Price", () => { coffee.Size = Size.Large; });
             Assert.PropertyChanged(coffee, "Calories", () => { coffee.Size = Size.Medium; });
         }
+
+        [Theory]
+        [InlineData("RoomForCream")]
+        [InlineData("Decaf")]
+        public void ChangingPropertyShouldInvokePropertyChanged(string propertyName)
+        {
+            var coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, propertyName, () =>
+            {
+                switch (propertyName)
+                {
+                    case "RoomForCream":
+                        coffee.RoomForCream = true;
+                        break;
+                    case "Decaf":
+                        coffee.Decaf = true;
+                        break;
+                }
+            });
+        }
+
+        [Fact]
+        public void ChangingPropertyShouldInvokePropertyChangeForSpecialInstructions()
+        {
+            var coffee = new CowboyCoffee();
+
+            Assert.PropertyChanged(coffee, "SpecialInstructions", () => { coffee.RoomForCream = true; });
+            Assert.PropertyChanged(coffee, "SpecialInstructions", () => { coffee.Ice = true; });
+        }
     }
 }
