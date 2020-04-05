@@ -11,13 +11,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
         <TextBlock Height="30" Grid.Row="0" TextAlignment="Center" FontWeight="Bold" FontSize="20" Background="Blue" Text="{Binding}"/>
         
-        <ListBox ItemsSource="{Binding Path=Items}" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Visible"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="Black">
+        <ListBox Name="ItemListView" ItemsSource="{Binding Path=Items}" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="Black" BorderThickness="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="0,1,0,1">
@@ -50,14 +50,29 @@
         </ListBox>
         
         <Border Grid.Row="2" BorderBrush="Black" BorderThickness="0,2,0,2"/>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Margin="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="75"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Subtotal"  TextAlignment="Left" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
-            <Border BorderBrush="DarkGray" BorderThickness="3,0,0,0" Grid.Column="1"/>
-            <TextBlock Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}" FontSize="15" TextAlignment="Right" VerticalAlignment="Center"/>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+           
+
+            <TextBlock Grid.Column="0" Text="Subtotal"  TextAlignment="Left" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Text="{Binding Path=Subtotal, StringFormat=c}" FontSize="13" TextAlignment="Right" VerticalAlignment="Center"/>
+
+            <TextBlock Grid.Row="1" Text="Tax"  TextAlignment="Left" FontSize="15" FontWeight="Bold" VerticalAlignment="Center" Background="LightGray"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=Tax, StringFormat=c}" FontSize="15" TextAlignment="Right" VerticalAlignment="Center" Background="LightGray"/>
+
+            <TextBlock Grid.Row="2" Text="Total"  TextAlignment="Left" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding Path=Total, StringFormat=c}" FontSize="15" TextAlignment="Right" VerticalAlignment="Center"/>
+
+            <Border BorderBrush="DarkGray" BorderThickness="3,0,3,0" Margin="0 0 -3 0" Grid.Column="1" Grid.RowSpan="3"/>
         </Grid>
     </Grid>
        

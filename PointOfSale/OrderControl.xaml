@@ -16,7 +16,7 @@
     </UserControl.Resources>
     
     <DockPanel>
-        <local:OrderSummaryControl DockPanel.Dock="Left" />
+        <local:OrderSummaryControl DockPanel.Dock="Left" x:Name="SummaryControlScreen"/>
         <StackPanel>
             <Grid Height="47" Background="White">
                 <Grid.ColumnDefinitions>

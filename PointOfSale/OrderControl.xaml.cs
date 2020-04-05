@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using PointOfSale.TransactionScreens;
+using PointOfSale.ExtensionMethods;
 
 namespace PointOfSale
 {
@@ -37,7 +39,7 @@ namespace PointOfSale
         /// <param name="e">Arguement</param>
         private void ItemSelectionButton_Click(object sender, RoutedEventArgs e)
         {
-            Container.Child = new MenuItemSelectionControl(); 
+            SwapScreen(new MenuItemSelectionControl()); 
         }
 
         /// <summary>
@@ -48,7 +50,7 @@ namespace PointOfSale
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
-            Container.Child = new MenuItemSelectionControl();
+            SwapScreen(new MenuItemSelectionControl());
         }
         
         /// <summary>
@@ -58,8 +60,18 @@ namespace PointOfSale
         /// <param name="e">Argument</param>
         private void CompleteOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
-            Container.Child = new MenuItemSelectionControl();
+            if (DataContext is Order order)
+            {
+                if (order.Items.Any())
+                {
+                    SwapScreen(new TransactionControl());
+                }
+                else
+                {
+                    SummaryControlScreen.ItemListView.BorderBrush = Brushes.Red;
+                    SummaryControlScreen.ItemListView.BorderThickness = new Thickness(3);
+                }
+            }
         }
 
         /// <summary>
@@ -69,6 +81,9 @@ namespace PointOfSale
         public void SwapScreen(FrameworkElement element)
         {
             Container.Child = element;
+
+            SummaryControlScreen.ItemListView.BorderBrush = Brushes.Black;
+            SummaryControlScreen.ItemListView.BorderThickness = new Thickness(1);
         }
     }
 }

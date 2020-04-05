@@ -11,6 +11,11 @@ namespace CowboyCafe.Data
     public class Order : INotifyPropertyChanged
     {
         /// <summary>
+        /// Tax rate
+        /// </summary>
+        private const double TaxRate = 0.16;
+
+        /// <summary>
         /// Static variable for number of orders since program has begun.
         /// </summary>
         private static uint lastOrderNumber = 0;
@@ -50,6 +55,37 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Tthe tax value of the order.
+        /// </summary>
+        public double Tax => Subtotal * TaxRate;
+
+        /// <summary>
+        /// The total cost of the order including tax.
+        /// </summary>
+        public double Total => Subtotal + Tax;
+
+
+        private double paid = 0.0;
+        /// <summary>
+        /// Amount customer has paid.
+        /// </summary>
+        public double Paid
+        {
+            get { return paid; }
+            set 
+            { 
+                if (value == paid) return;
+                paid = value;
+            }
+        }
+
+        /// <summary>
+        /// Amount customer owes (if negative represents the customer's change)
+        /// </summary>
+        public double Owed => Total - Paid;
+        
+
+        /// <summary>
         /// Private variable which holds the items in the order.
         /// </summary>
         List<IOrderItem> items = new List<IOrderItem>();
@@ -73,6 +109,8 @@ namespace CowboyCafe.Data
             }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
 
         /// <summary>
@@ -89,7 +127,8 @@ namespace CowboyCafe.Data
             }
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
         }
 
         /// <summary>
@@ -104,7 +143,12 @@ namespace CowboyCafe.Data
         private void OnItemChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
-            if (e.PropertyName == "Price")  PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            if (e.PropertyName == "Price")
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
+            }
         }
     }
 }

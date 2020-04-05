@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using CowboyCafe.Data;
 
 namespace PointOfSale.ExtensionMethods
 {
@@ -26,6 +27,18 @@ namespace PointOfSale.ExtensionMethods
             if (parent is T) return parent as T;
 
             return parent.FindAncestor<T>();
+        }
+
+        /// <summary>
+        /// Determines if the enumerable Order Item list contains an object.
+        /// </summary>
+        /// <typeparam name="T">Type of object being enumeratored</typeparam>
+        /// <param name="enumerator">Enumerator  to check</param>
+        /// <returns>If the enumerator contains any items.</returns>
+        public static bool Any<T>(this IEnumerable<T> enumerator) where T : IOrderItem
+        {
+            foreach (T item in enumerator) return true;
+            return false;
         }
     }
 }
