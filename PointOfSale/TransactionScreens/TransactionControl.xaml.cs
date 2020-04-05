@@ -52,6 +52,7 @@ namespace PointOfSale.TransactionScreens
 
                     var screen = new CardPaymentControl();
                     screen.DataContext = order;
+                    screen.PaymentValue();
                     SwapScreen(screen);
                 }
             }

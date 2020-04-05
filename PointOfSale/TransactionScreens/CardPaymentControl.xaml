@@ -5,8 +5,54 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.TransactionScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             Height="250" Width="300"
+             d:DesignHeight="250" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <DockPanel Height="250" Width="250">
+        <TextBlock Name ="InputValueTextBlock" FontSize="20"  TextAlignment="Center" Background="LightGray" DockPanel.Dock="Top" Height="30" Text="{Binding ElementName=this, Path=inputValue}"/>
+
+        <Grid DockPanel.Dock="Right" Width="50">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             
-    </Grid>
+            <Button Click="OnSendClick" Grid.Row="0" Background="LightGreen">Send</Button>
+            <Button Click="OnClearClick" Grid.Row="1" Background="Pink">Clear</Button>
+        </Grid>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Tag="Click_Backspace" Click="OnNumpadClick" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">Backspace</Button>
+            <Button Tag="Click_0" Click="OnNumpadClick" Grid.Row="3" Grid.Column="0">0</Button>
+            <Button Tag="Click_1" Click="OnNumpadClick" Grid.Row="2" Grid.Column="0">1</Button>
+            <Button Tag="Click_2" Click="OnNumpadClick" Grid.Row="2" Grid.Column="1">2</Button>
+            <Button Tag="Click_3" Click="OnNumpadClick" Grid.Row="2" Grid.Column="2">3</Button>
+            <Button Tag="Click_4" Click="OnNumpadClick" Grid.Row="1" Grid.Column="0">4</Button>
+            <Button Tag="Click_5" Click="OnNumpadClick" Grid.Row="1" Grid.Column="1">5</Button>
+            <Button Tag="Click_6" Click="OnNumpadClick" Grid.Row="1" Grid.Column="2">6</Button>
+            <Button Tag="Click_7" Click="OnNumpadClick" Grid.Row="0" Grid.Column="0">7</Button>
+            <Button Tag="Click_8" Click="OnNumpadClick" Grid.Row="0" Grid.Column="1">8</Button>
+            <Button Tag="Click_9" Click="OnNumpadClick" Grid.Row="0" Grid.Column="2">9</Button>
+            
+            
+        </Grid>
+    </DockPanel>
 </UserControl>

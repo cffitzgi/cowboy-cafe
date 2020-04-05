@@ -76,13 +76,15 @@ namespace CowboyCafe.Data
             { 
                 if (value == paid) return;
                 paid = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Paid"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Owed"));
             }
         }
 
         /// <summary>
         /// Amount customer owes (if negative represents the customer's change)
         /// </summary>
-        public double Owed => Total - Paid;
+        public double Owed => (double)((decimal)Total - (decimal)Paid);
         
 
         /// <summary>
@@ -111,6 +113,7 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Owed"));
         }
 
         /// <summary>
@@ -129,6 +132,7 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Owed"));
         }
 
         /// <summary>
@@ -148,6 +152,7 @@ namespace CowboyCafe.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Owed"));
             }
         }
     }

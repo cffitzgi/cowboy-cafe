@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PointOfSale"
+             xmlns:local="clr-namespace:PointOfSale" xmlns:tran="clr-namespace:PointOfSale.TransactionScreens" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
     <UserControl.Resources>
@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -43,7 +43,6 @@
         </StackPanel>
 
         <Border Name="Container" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
-            
         </Border>
     </Grid>
 </UserControl>
