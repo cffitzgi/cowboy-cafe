@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using CowboyCafe.Data;
 using PointOfSale.TransactionScreens;
 using PointOfSale.ExtensionMethods;
+using PointOfSale.TransactionScreens.CashControls;
 
 namespace PointOfSale
 {
@@ -28,9 +29,12 @@ namespace PointOfSale
         {
             InitializeComponent();
             var order = new Order();
+            Register = new CashRegisterModelView();
 
             this.DataContext = order;
         }
+
+        public CashRegisterModelView Register { get; private set; }
 
         /// <summary>
         /// Returns to default OrderControl selection menu.
@@ -64,7 +68,10 @@ namespace PointOfSale
             {
                 if (order.Items.Any())
                 {
-                    SwapScreen(new TransactionControl());
+                    var screen = new TransactionControl();
+                    //screen.DataContext = order;
+                    //screen.InitializeContext();
+                    SwapScreen(screen);
                 }
                 else
                 {

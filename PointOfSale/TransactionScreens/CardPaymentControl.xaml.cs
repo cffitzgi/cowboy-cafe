@@ -56,7 +56,7 @@ namespace PointOfSale.TransactionScreens
         /// <summary>
         /// Sets the InputValueTextBlock to the amount still owed in order formatted as US currency.
         /// </summary>
-        public void PaymentValue()
+        public void StartingPaymentValue()
         {
             if (DataContext is Order order)
             {
@@ -101,7 +101,7 @@ namespace PointOfSale.TransactionScreens
                                     orderControl.DataContext = new Order();
                                     orderControl.SwapScreen(new MenuItemSelectionControl());
                                 }
-                                else */PaymentValue();
+                                else */StartingPaymentValue();
                                 break;
                             case ResultCode.ReadError:
                                 errorDisplay("READ ERROR");

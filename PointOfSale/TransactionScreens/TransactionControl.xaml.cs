@@ -12,6 +12,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PointOfSale.ExtensionMethods;
 using CowboyCafe.Data;
+using PointOfSale.TransactionScreens.CashControls;
+using System.ComponentModel;
 
 namespace PointOfSale.TransactionScreens
 {
@@ -26,7 +28,21 @@ namespace PointOfSale.TransactionScreens
         public TransactionControl()
         {
             InitializeComponent();
-            //CompleteTransactionButton.IsEnabled = false;
+            
+        }
+
+
+        void OnPaidAmountChange(object sender, PropertyChangedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                    if (e.PropertyName == "Owed")
+                    {
+                        if (order.Owed < 0) OwedOrChange.Text = "Change";
+                        else OwedOrChange.Text = "Owed";
+                    }
+                
+            }
         }
 
         /// <summary>
@@ -40,11 +56,17 @@ namespace PointOfSale.TransactionScreens
             {
                 if (sender is Button button)
                 {
+                    var orderControl = this.FindAncestor<OrderControl>();
+
+                    order.PropertyChanged += OnPaidAmountChange;
+
                     CashButton.IsEnabled = false;
                     CardButton.IsEnabled = true;
 
-                    var screen = new CashPaymentControl();
-                    screen.DataContext = order;
+
+                    var screen = new CashPaymentControl(order);
+                    screen.DataContext = orderControl.Register;
+                    screen.InitializeContext();
                     SwapScreen(screen);
                 }
             }
@@ -66,7 +88,7 @@ namespace PointOfSale.TransactionScreens
 
                     var screen = new CardPaymentControl();
                     screen.DataContext = order;
-                    screen.PaymentValue();
+                    screen.StartingPaymentValue();
                     SwapScreen(screen);
                 }
             }

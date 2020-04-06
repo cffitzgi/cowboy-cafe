@@ -57,7 +57,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Tthe tax value of the order.
         /// </summary>
-        public double Tax => Subtotal * TaxRate;
+        public double Tax => (int)(Subtotal * TaxRate * 100) / 100;
 
         /// <summary>
         /// The total cost of the order including tax.

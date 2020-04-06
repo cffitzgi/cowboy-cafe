@@ -36,9 +36,9 @@
         <Button Name="CardButton" Grid.Row="2" Click="OnCardPaymentButtonClicked">Card</Button>
 
         <StackPanel VerticalAlignment="Center" Grid.Column="1">
-            <TextBlock Text="Owed" FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="OwedOrChange" Text="Owed" FontSize="18" HorizontalAlignment="Center"/>
             <Border Name="AmountOwedBorder" BorderBrush="Gray" BorderThickness="2" Margin="40 0 40 0">
-                <TextBlock Background="WhiteSmoke" FontSize="20" Text="{Binding Path=Owed, StringFormat=c}"/>
+                <TextBlock Name="AmountOwedTextBlock" Background="WhiteSmoke" FontSize="20" Text="{Binding Path=Owed, StringFormat=C2}"/>
             </Border>
         </StackPanel>
 
