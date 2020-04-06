@@ -28,7 +28,7 @@
 
         <StackPanel Orientation="Horizontal">
             <Button Padding="3" Margin="15 0 15 0" Background="Pink" Click="OnCancelTransactionClicked">Cancel</Button>
-            <Button Padding="3" Margin="0" Background="LightGreen" Click="OnCompleteTransactionClicked">Complete Transaction</Button>
+            <Button Padding="3" Margin="0" Background="LightGreen" Click="OnCompleteTransactionClicked" IsEnabled="{Binding Path=PaidOff}">Complete Transaction</Button>
         </StackPanel>
         
         <Button Name="CashButton" Grid.Row="1" Click="OnCashPaymentButtonClicked">Cash</Button>

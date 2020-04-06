@@ -95,13 +95,13 @@ namespace PointOfSale.TransactionScreens
 // TODO : IMPLEMENT RECEIPT FORMATTER EXTENSION METHOD/CLASS
                                 order.Paid += inputValue;
                                 printer.Print("TODO IMPLEMENT");
-                                if (order.Owed <= 0)
+                                /*if (order.Owed <= 0)
                                 {
                                     var orderControl = this.FindAncestor<OrderControl>();
                                     orderControl.DataContext = new Order();
                                     orderControl.SwapScreen(new MenuItemSelectionControl());
                                 }
-                                else PaymentValue();
+                                else */PaymentValue();
                                 break;
                             case ResultCode.ReadError:
                                 errorDisplay("READ ERROR");

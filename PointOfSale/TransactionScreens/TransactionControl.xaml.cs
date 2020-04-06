@@ -20,11 +20,20 @@ namespace PointOfSale.TransactionScreens
     /// </summary>
     public partial class TransactionControl : UserControl
     {
+        /// <summary>
+        /// Constructor for TransactionControl
+        /// </summary>
         public TransactionControl()
         {
             InitializeComponent();
+            //CompleteTransactionButton.IsEnabled = false;
         }
 
+        /// <summary>
+        /// Click event handler for Cash Payment selection
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Event arguments</param>
         void OnCashPaymentButtonClicked(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -41,6 +50,11 @@ namespace PointOfSale.TransactionScreens
             }
         }
 
+        /// <summary>
+        /// Click event handler for Card Payment selection
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Event arguments</param>
         void OnCardPaymentButtonClicked(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -58,8 +72,11 @@ namespace PointOfSale.TransactionScreens
             }
         }
 
-
-
+        /// <summary>
+        /// Click event handler for Transaction Cancelation 
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Event arguments</param>
         void OnCancelTransactionClicked(object sender, RoutedEventArgs e)
         {
             var orderControl = this.FindAncestor<OrderControl>();
@@ -74,6 +91,11 @@ namespace PointOfSale.TransactionScreens
             }
         }
 
+        /// <summary>
+        /// Click event handler for Cash Payment selection
+        /// </summary>
+        /// <param name="sender">Button</param>
+        /// <param name="args">Event arguments</param>
         void OnCompleteTransactionClicked(object sender, RoutedEventArgs e)
         {
             var orderControl = this.FindAncestor<OrderControl>();
@@ -101,7 +123,7 @@ namespace PointOfSale.TransactionScreens
         /// <summary>
         /// Swaps screen in container.
         /// </summary>
-        /// <param name="element"></param>
+        /// <param name="element">Screen to swap to</param>
         public void SwapScreen(FrameworkElement element)
         {
             Container.Child = element;
