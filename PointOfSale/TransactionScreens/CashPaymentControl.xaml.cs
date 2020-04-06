@@ -22,24 +22,37 @@ namespace PointOfSale.TransactionScreens
     /// </summary>
     public partial class CashPaymentControl : UserControl
     {
+        /// <summary>
+        /// No parameter Constructor
+        /// </summary>
         public CashPaymentControl()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Constructor with order parameter.
+        /// </summary>
+        /// <param name="o">Current order in question.</param>
         public CashPaymentControl(Order o)
         {
             InitializeComponent();
             order = o;
-            
         }
 
-
+        /// <summary>
+        /// Order being paid for.
+        /// </summary>
         private Order order;
 
+        /// <summary>
+        /// Amount of cash in register at begining of transaction.
+        /// </summary>
         private double startingRegisterAmount;
 
-        private double endRegisterAmount => safeAddition(startingRegisterAmount, order.Total);
-
+        /// <summary>
+        /// Initializes event listener for Register amount
+        /// </summary>
         public void InitializeContext()
         {
             if (DataContext is CashRegisterModelView register)
@@ -49,13 +62,12 @@ namespace PointOfSale.TransactionScreens
             }
         }
 
+
         /// <summary>
-        /// Instance of ReceiptPrinter class
+        /// When amount of cash in register has changed, updates order to reflect cash exchange.
         /// </summary>
-        private ReceiptPrinter printer = new ReceiptPrinter();
-
-        //private PropertyChangedEventHandler
-
+        /// <param name="sender">Event</param>
+        /// <param name="args">Event arguments</param>
         private void OnRegisterAmountChange(object sender, PropertyChangedEventArgs args)
         {
 
@@ -64,18 +76,19 @@ namespace PointOfSale.TransactionScreens
                 if (args.PropertyName == "TotalValue")
                 {
                     order.Paid = safeSubtraction(register.TotalValue, startingRegisterAmount);
-                    //if(order.Owed < 0) 
                 }
             }
         }
 
+        /// <summary>
+        /// Subtracts two doubles without rounding error (converts both to decimals)
+        /// </summary>
+        /// <param name="a">First double</param>
+        /// <param name="b">Subtracted double</param>
+        /// <returns>Difference of doubles.</returns>
         private double safeSubtraction(double a, double b)
         {
             return (double)((decimal)a - (decimal)b);
-        }
-        private double safeAddition(double a, double b)
-        {
-            return (double)((decimal)a + (decimal)b);
         }
     }
 }

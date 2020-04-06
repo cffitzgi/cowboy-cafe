@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using CowboyCafe.Data;
 using CashRegister;
 using PointOfSale.ExtensionMethods;
+using PointOfSale.TransactionScreens;
 
 namespace PointOfSale.TransactionScreens
 {
@@ -56,7 +57,7 @@ namespace PointOfSale.TransactionScreens
         /// <summary>
         /// Sets the InputValueTextBlock to the amount still owed in order formatted as US currency.
         /// </summary>
-        public void StartingPaymentValue()
+        public void DisplayAmountOwed()
         {
             if (DataContext is Order order)
             {
@@ -92,16 +93,9 @@ namespace PointOfSale.TransactionScreens
                         switch (swipeResult)
                         {
                             case ResultCode.Success:
-// TODO : IMPLEMENT RECEIPT FORMATTER EXTENSION METHOD/CLASS
                                 order.Paid += inputValue;
-                                printer.Print("TODO IMPLEMENT");
-                                /*if (order.Owed <= 0)
-                                {
-                                    var orderControl = this.FindAncestor<OrderControl>();
-                                    orderControl.DataContext = new Order();
-                                    orderControl.SwapScreen(new MenuItemSelectionControl());
-                                }
-                                else */StartingPaymentValue();
+                                printer.Print(order.FormatCardReceipt());
+                                DisplayAmountOwed();
                                 break;
                             case ResultCode.ReadError:
                                 errorDisplay("READ ERROR");

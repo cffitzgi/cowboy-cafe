@@ -87,6 +87,9 @@ namespace CowboyCafe.Data
         /// </summary>
         public double Owed => (double)((decimal)Total - (decimal)Paid);
 
+        /// <summary>
+        /// If the order has a balanced ledger.
+        /// </summary>
         public bool PaidOff => Owed == 0;
         
 

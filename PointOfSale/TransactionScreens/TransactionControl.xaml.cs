@@ -14,6 +14,7 @@ using PointOfSale.ExtensionMethods;
 using CowboyCafe.Data;
 using PointOfSale.TransactionScreens.CashControls;
 using System.ComponentModel;
+using CashRegister;
 
 namespace PointOfSale.TransactionScreens
 {
@@ -31,16 +32,49 @@ namespace PointOfSale.TransactionScreens
             
         }
 
+        /// <summary>
+        /// Instance of ReceiptPrinter class
+        /// </summary>
+        private ReceiptPrinter printer = new ReceiptPrinter();
 
+        /// <summary>
+        /// Total payment made recorded when change is owed.
+        /// </summary>
+        private double initialPayment = 0.0;
+
+        /// <summary>
+        /// Amount of change owed.
+        /// </summary>
+        private double change = 0.0;
+
+        /// <summary>
+        /// When the amount paid for the order has changed, updates screen and properties.
+        /// </summary>
+        /// <param name="sender">Event</param>
+        /// <param name="e">Event arguments</param>
         void OnPaidAmountChange(object sender, PropertyChangedEventArgs e)
         {
             if (DataContext is Order order)
             {
-                    if (e.PropertyName == "Owed")
+                if (e.PropertyName == "Owed")
+                {
+                    if (order.Owed < 0)
                     {
-                        if (order.Owed < 0) OwedOrChange.Text = "Change";
-                        else OwedOrChange.Text = "Owed";
+                        OwedOrChange.Text = "Change";
+                        CardButton.IsEnabled = false;
+                        if (initialPayment == 0.0)
+                        {
+                            initialPayment = order.Paid;
+                            change = (double)((decimal)initialPayment - (decimal)order.Total);
+                        }
                     }
+                    else
+                    {
+                        if(!CashButton.IsEnabled && initialPayment == 0.0) initialPayment = order.Paid;
+                        OwedOrChange.Text = "Owed";
+                        CardButton.IsEnabled = true;
+                    }
+                }
                 
             }
         }
@@ -88,7 +122,7 @@ namespace PointOfSale.TransactionScreens
 
                     var screen = new CardPaymentControl();
                     screen.DataContext = order;
-                    screen.StartingPaymentValue();
+                    screen.DisplayAmountOwed();
                     SwapScreen(screen);
                 }
             }
@@ -126,8 +160,9 @@ namespace PointOfSale.TransactionScreens
             {
                 if (sender is Button button)
                 {
-                    if (order.Owed <= 0)
+                    if (order.Owed == 0.0)
                     {
+                        if (initialPayment != 0.0) printer.Print(order.FormatCashReceipt(initialPayment, change));
                         orderControl.DataContext = new Order();
                         orderControl.SwapScreen(new MenuItemSelectionControl());
                     }
