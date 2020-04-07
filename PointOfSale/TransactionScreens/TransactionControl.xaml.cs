@@ -52,7 +52,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="sender">Event</param>
         /// <param name="e">Event arguments</param>
-        void OnPaidAmountChange(object sender, PropertyChangedEventArgs e)
+        void onPaidAmountChange(object sender, PropertyChangedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -84,7 +84,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="sender">Button</param>
         /// <param name="args">Event arguments</param>
-        void OnCashPaymentButtonClicked(object sender, RoutedEventArgs args)
+        void onCashPaymentButtonClicked(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -92,7 +92,7 @@ namespace PointOfSale.TransactionScreens
                 {
                     var orderControl = this.FindAncestor<OrderControl>();
 
-                    order.PropertyChanged += OnPaidAmountChange;
+                    order.PropertyChanged += onPaidAmountChange;
 
                     CashButton.IsEnabled = false;
                     CardButton.IsEnabled = true;
@@ -111,7 +111,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="sender">Button</param>
         /// <param name="args">Event arguments</param>
-        void OnCardPaymentButtonClicked(object sender, RoutedEventArgs args)
+        void onCardPaymentButtonClicked(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -133,7 +133,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="sender">Button</param>
         /// <param name="args">Event arguments</param>
-        void OnCancelTransactionClicked(object sender, RoutedEventArgs e)
+        void onCancelTransactionClicked(object sender, RoutedEventArgs e)
         {
             var orderControl = this.FindAncestor<OrderControl>();
 
@@ -152,7 +152,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="sender">Button</param>
         /// <param name="args">Event arguments</param>
-        void OnCompleteTransactionClicked(object sender, RoutedEventArgs e)
+        void onCompleteTransactionClicked(object sender, RoutedEventArgs e)
         {
             var orderControl = this.FindAncestor<OrderControl>();
 

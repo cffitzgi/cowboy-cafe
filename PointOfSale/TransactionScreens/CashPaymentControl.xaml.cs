@@ -58,7 +58,7 @@ namespace PointOfSale.TransactionScreens
             if (DataContext is CashRegisterModelView register)
             {
                 startingRegisterAmount = register.TotalValue;
-                register.PropertyChanged += OnRegisterAmountChange;
+                register.PropertyChanged += onRegisterAmountChange;
             }
         }
 
@@ -68,7 +68,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="sender">Event</param>
         /// <param name="args">Event arguments</param>
-        private void OnRegisterAmountChange(object sender, PropertyChangedEventArgs args)
+        private void onRegisterAmountChange(object sender, PropertyChangedEventArgs args)
         {
 
             if (DataContext is CashRegisterModelView register)

@@ -27,13 +27,13 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <Button Padding="3" Margin="15 0 15 0" Background="Pink" Click="OnCancelTransactionClicked">Cancel</Button>
-            <Button Padding="3" Margin="0" Background="LightGreen" Click="OnCompleteTransactionClicked" IsEnabled="{Binding Path=PaidOff}">Complete Transaction</Button>
+            <Button Padding="3" Margin="15 0 15 0" Background="Pink" Click="onCancelTransactionClicked">Cancel</Button>
+            <Button Padding="3" Margin="0" Background="LightGreen" Click="onCompleteTransactionClicked" IsEnabled="{Binding Path=PaidOff}">Complete Transaction</Button>
         </StackPanel>
         
-        <Button Name="CashButton" Grid.Row="1" Click="OnCashPaymentButtonClicked">Cash</Button>
+        <Button Name="CashButton" Grid.Row="1" Click="onCashPaymentButtonClicked">Cash</Button>
 
-        <Button Name="CardButton" Grid.Row="2" Click="OnCardPaymentButtonClicked">Card</Button>
+        <Button Name="CardButton" Grid.Row="2" Click="onCardPaymentButtonClicked">Card</Button>
 
         <StackPanel VerticalAlignment="Center" Grid.Column="1">
             <TextBlock Name="OwedOrChange" Text="Owed" FontSize="18" HorizontalAlignment="Center"/>

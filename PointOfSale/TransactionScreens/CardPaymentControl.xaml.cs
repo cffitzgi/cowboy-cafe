@@ -76,7 +76,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="sender">Button</param>
         /// <param name="e">Event arguments</param>
-        void OnSendClick(object sender, RoutedEventArgs e)
+        void onSendClick(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -120,7 +120,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnClearClick(object sender, RoutedEventArgs e)
+        void onClearClick(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -141,7 +141,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="sender">Button</param>
         /// <param name="e">Event arguments</param>
-        void OnNumpadClick(object sender, RoutedEventArgs e)
+        void onNumpadClick(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
             {
@@ -156,37 +156,37 @@ namespace PointOfSale.TransactionScreens
                     switch (button.Tag)
                     {
                         case "Click_0":
-                            AddLastDigit(0);
+                            addLastDigit(0);
                             break;
                         case "Click_1":
-                            AddLastDigit(1);
+                            addLastDigit(1);
                             break;
                         case "Click_2":
-                            AddLastDigit(2);
+                            addLastDigit(2);
                             break;
                         case "Click_3":
-                            AddLastDigit(3);
+                            addLastDigit(3);
                             break;
                         case "Click_4":
-                            AddLastDigit(4);
+                            addLastDigit(4);
                             break;
                         case "Click_5":
-                            AddLastDigit(5);
+                            addLastDigit(5);
                             break;
                         case "Click_6":
-                            AddLastDigit(6);
+                            addLastDigit(6);
                             break;
                         case "Click_7":
-                            AddLastDigit(7);
+                            addLastDigit(7);
                             break;
                         case "Click_8":
-                            AddLastDigit(8);
+                            addLastDigit(8);
                             break;
                         case "Click_9":
-                            AddLastDigit(9);
+                            addLastDigit(9);
                             break;
                         case "Click_Backspace":
-                            RemoveLastDigit();
+                            removeLastDigit();
                             break;
                     }
                     InputValueTextBlock.Text = inputValue.ToString("C2");
@@ -198,7 +198,7 @@ namespace PointOfSale.TransactionScreens
         /// Adds the last digit onto the inputValue.
         /// </summary>
         /// <param name="digit"></param>
-        void AddLastDigit(int digit)
+        void addLastDigit(int digit)
         {
             inputValue = (inputValue * 10) + ((double)digit / 100);
         }
@@ -206,7 +206,7 @@ namespace PointOfSale.TransactionScreens
         /// <summary>
         /// Removes the last digit from the inputValue.
         /// </summary>
-        void RemoveLastDigit()
+        void removeLastDigit()
         {
             int newValue = (int)(inputValue * 10.0);
             inputValue = (double)newValue / 100.0;

@@ -23,8 +23,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             
-            <Button Click="OnSendClick" Grid.Row="0" Background="LightGreen">Send</Button>
-            <Button Click="OnClearClick" Grid.Row="1" Background="Pink">Clear</Button>
+            <Button Click="onSendClick" Grid.Row="0" Background="LightGreen">Send</Button>
+            <Button Click="onClearClick" Grid.Row="1" Background="Pink">Clear</Button>
         </Grid>
         
         <Grid>
@@ -40,17 +40,17 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button Tag="Click_Backspace" Click="OnNumpadClick" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">Backspace</Button>
-            <Button Tag="Click_0" Click="OnNumpadClick" Grid.Row="3" Grid.Column="0">0</Button>
-            <Button Tag="Click_1" Click="OnNumpadClick" Grid.Row="2" Grid.Column="0">1</Button>
-            <Button Tag="Click_2" Click="OnNumpadClick" Grid.Row="2" Grid.Column="1">2</Button>
-            <Button Tag="Click_3" Click="OnNumpadClick" Grid.Row="2" Grid.Column="2">3</Button>
-            <Button Tag="Click_4" Click="OnNumpadClick" Grid.Row="1" Grid.Column="0">4</Button>
-            <Button Tag="Click_5" Click="OnNumpadClick" Grid.Row="1" Grid.Column="1">5</Button>
-            <Button Tag="Click_6" Click="OnNumpadClick" Grid.Row="1" Grid.Column="2">6</Button>
-            <Button Tag="Click_7" Click="OnNumpadClick" Grid.Row="0" Grid.Column="0">7</Button>
-            <Button Tag="Click_8" Click="OnNumpadClick" Grid.Row="0" Grid.Column="1">8</Button>
-            <Button Tag="Click_9" Click="OnNumpadClick" Grid.Row="0" Grid.Column="2">9</Button>
+            <Button Tag="Click_Backspace" Click="onNumpadClick" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">Backspace</Button>
+            <Button Tag="Click_0" Click="onNumpadClick" Grid.Row="3" Grid.Column="0">0</Button>
+            <Button Tag="Click_1" Click="onNumpadClick" Grid.Row="2" Grid.Column="0">1</Button>
+            <Button Tag="Click_2" Click="onNumpadClick" Grid.Row="2" Grid.Column="1">2</Button>
+            <Button Tag="Click_3" Click="onNumpadClick" Grid.Row="2" Grid.Column="2">3</Button>
+            <Button Tag="Click_4" Click="onNumpadClick" Grid.Row="1" Grid.Column="0">4</Button>
+            <Button Tag="Click_5" Click="onNumpadClick" Grid.Row="1" Grid.Column="1">5</Button>
+            <Button Tag="Click_6" Click="onNumpadClick" Grid.Row="1" Grid.Column="2">6</Button>
+            <Button Tag="Click_7" Click="onNumpadClick" Grid.Row="0" Grid.Column="0">7</Button>
+            <Button Tag="Click_8" Click="onNumpadClick" Grid.Row="0" Grid.Column="1">8</Button>
+            <Button Tag="Click_9" Click="onNumpadClick" Grid.Row="0" Grid.Column="2">9</Button>
             
             
         </Grid>

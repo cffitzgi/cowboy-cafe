@@ -20,7 +20,7 @@ namespace PointOfSale.TransactionScreens
         /// <returns>Order formatted as receipt</returns>
         public static string FormatCashReceipt(this Order o, double payment, double change)
         {
-            FormatReceipt(o, out StringBuilder sb);
+            formatReceipt(o, out StringBuilder sb);
 
             sb.Append("\nAmount Paid:\t\t\t");
             sb.Append(payment.ToString("C2"));
@@ -41,7 +41,7 @@ namespace PointOfSale.TransactionScreens
         /// <returns>Order formatted as receipt</returns>
         public static string FormatCardReceipt(this Order o)
         {
-            FormatReceipt(o, out StringBuilder sb);
+            formatReceipt(o, out StringBuilder sb);
 
             sb.Append("\n[Card Payment]\n");
             sb.Append(LINE);
@@ -56,7 +56,7 @@ namespace PointOfSale.TransactionScreens
         /// </summary>
         /// <param name="o">Order to format</param>
         /// <param name="sb">Stringbuilder</param>
-        public static void FormatReceipt(Order o, out StringBuilder sb)
+        private static void formatReceipt(Order o, out StringBuilder sb)
         {
             sb = new StringBuilder();
             sb.Append(LINE);
