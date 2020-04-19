@@ -19,6 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{55D68C83-668C-4E73-AC09-3C69BD36C762}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{D5B447EC-01FB-44F7-BC28-3F0FCD756A9A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C3BFDB18-4ACD-495B-9CCE-675B7A8FD8FE} = {C3BFDB18-4ACD-495B-9CCE-675B7A8FD8FE}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +42,10 @@ Global
 		{55D68C83-668C-4E73-AC09-3C69BD36C762}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55D68C83-668C-4E73-AC09-3C69BD36C762}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55D68C83-668C-4E73-AC09-3C69BD36C762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5B447EC-01FB-44F7-BC28-3F0FCD756A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B447EC-01FB-44F7-BC28-3F0FCD756A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B447EC-01FB-44F7-BC28-3F0FCD756A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B447EC-01FB-44F7-BC28-3F0FCD756A9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

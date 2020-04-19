@@ -1,0 +1,169 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+ul.item-list {
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid gray;
+}
+
+    ul.item-list > li {
+        list-style-type: none;
+        border-bottom: 1px solid lightgray;
+        margin: 10px;
+    }
+
+    .menu-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        min-height: 50px;
+    }
+
+.price {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.item-title {
+    color: darkslategray;
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: left;
+}
+ 
+.cal {
+    color: slategray;
+    text-align: left;
+}
+
+.entree-price {
+    color: gray;
+    border: 1px solid gray;
+    width: 60px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+    .entree-price::before {
+        content: "Price";
+        display: block;
+        font-size: 1rem;
+    }
+
+.small-price {
+    color: gray;
+    border: 1px solid gray;
+    width: 60px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+    .small-price::before{
+        content: "Small";
+        display: block;
+        font-size: 1rem;
+    }
+
+.medium-price {
+    color: gray;
+    border: 1px solid gray;
+    width: 60px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+    .medium-price::before {
+        content: "Med";
+        display: block;
+        font-size: 1rem;
+    }
+
+.large-price {
+    color: gray;
+    border: 1px solid gray;
+    width: 60px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+    .large-price::before {
+        content: "Large";
+        display: block;
+        font-size: 1rem;
+    }
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* DEFAULT LAYOUT SETTINGS BELOW */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
