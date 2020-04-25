@@ -157,10 +157,20 @@ html {
 }
 
 body {
+    background-image: url(../images/Chuckwagon_in_Girvin,_TX_SCN1077.jfif);
+    background-attachment: fixed;
+    background-size: cover;
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
+
+.text-center {
+    background-color: white;
+    padding: 20px;
+}
+
 .footer {
+  background-color: white;
   position: absolute;
   bottom: 0;
   width: 100%;

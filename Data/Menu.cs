@@ -9,70 +9,126 @@ namespace CowboyCafe.Data
 {
     public static class Menu
     {
+        private static IEnumerable<IOrderItem> entrees;
         /// <summary>
         /// Creates static enumeration of a single instance of every entree.
         /// </summary>
         /// <returns>Enumeration of every entree</returns>
-        public static IEnumerable<IOrderItem> Entrees()
+        public static IEnumerable<IOrderItem> Entrees 
         {
-            var entrees = new List<Entree>();
+            get
+            {
+                if (entrees != null) return entrees;
 
-            entrees.Add(new AngryChicken());
-            entrees.Add(new CowpokeChili());
-            entrees.Add(new DakotaDoubleBurger());
-            entrees.Add(new PecosPulledPork());
-            entrees.Add(new RustlersRibs());
-            entrees.Add(new TexasTripleBurger());
-            entrees.Add(new TrailBurger());
+                var entreesNew = new List<Entree>();
 
-            return entrees.ToArray();
+                entreesNew.Add(new AngryChicken());
+                entreesNew.Add(new CowpokeChili());
+                entreesNew.Add(new DakotaDoubleBurger());
+                entreesNew.Add(new PecosPulledPork());
+                entreesNew.Add(new RustlersRibs());
+                entreesNew.Add(new TexasTripleBurger());
+                entreesNew.Add(new TrailBurger());
+
+                entrees = entreesNew.ToArray();
+                return entrees;
+            }
         }
 
+        private static IEnumerable<IOrderItem> sides;
         /// <summary>
         /// Creates static enumeration of a single instance of every side.
         /// </summary>
         /// <returns>Enumeration of every side</returns>
-        public static IEnumerable<IOrderItem> Sides()
+        public static IEnumerable<IOrderItem> Sides
         {
-            var sides = new List<Side>();
+            get
+            {
+                if (sides != null) return sides;
 
-            sides.Add(new BakedBeans());
-            sides.Add(new ChiliCheeseFries());
-            sides.Add(new CornDodgers());
-            sides.Add(new PanDeCampo());
+                var sidesNew = new List<Side>();
 
-            return sides.ToArray();
+                sidesNew.Add(new BakedBeans());
+                sidesNew.Add(new ChiliCheeseFries());
+                sidesNew.Add(new CornDodgers());
+                sidesNew.Add(new PanDeCampo());
+
+                sides = sidesNew.ToArray();
+                return sides;
+            }
         }
 
+        private static IEnumerable<IOrderItem> drinks;
         /// <summary>
         /// Creates static enumeration of a single instance of every drink.
         /// </summary>
         /// <returns>Enumeration of every drink</returns>
-        public static IEnumerable<IOrderItem> Drinks()
+        public static IEnumerable<IOrderItem> Drinks
         {
-            var drinks = new List<Drink>();
+            get
+            {
+                if (drinks != null) return drinks;
 
-            drinks.Add(new CowboyCoffee());
-            drinks.Add(new JerkedSoda());
-            drinks.Add(new TexasTea());
-            drinks.Add(new Water());
+                var drinksNew = new List<Drink>();
 
-            return drinks.ToArray();
+                drinksNew.Add(new CowboyCoffee());
+                drinksNew.Add(new JerkedSoda());
+                drinksNew.Add(new TexasTea());
+                drinksNew.Add(new Water());
+
+                drinks = drinksNew.ToArray();
+                return drinks;
+            }
         }
 
+        private static IEnumerable<IOrderItem> completeMenu;
         /// <summary>
         /// Creates static enumeration of a single instance of every menu item.
         /// </summary>
         /// <returns>Enumeration of every menu item</returns>
-        public static IEnumerable<IOrderItem> CompleteMenu()
+        public static IEnumerable<IOrderItem> CompleteMenu
         {
-            var completeMenu = new List<IOrderItem>();
+            get
+            {
+                if (completeMenu != null) return completeMenu;
 
-            foreach(Entree entree in Entrees()) { completeMenu.Add(entree); }
-            foreach(Side side in Sides()) { completeMenu.Add(side); }
-            foreach(Drink drink in Drinks()) { completeMenu.Add(drink); }
+                var completeMenuNew = new List<IOrderItem>();
 
-            return completeMenu.ToArray();
+                foreach (Entree entree in Entrees) { completeMenuNew.Add(entree); }
+                foreach (Side side in Sides) { completeMenuNew.Add(side); }
+                foreach (Drink drink in Drinks) { completeMenuNew.Add(drink); }
+
+                completeMenu = completeMenuNew.ToArray();
+                return completeMenu;
+            }
         }
+
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> menu, string term)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (term == null) return menu;
+            foreach (IOrderItem item in menu)
+            {
+                if (item.ToString().Contains(term, StringComparison.InvariantCultureIgnoreCase))
+                    results.Add(item);
+            }
+            return results;
+        }
+
+        /*public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> menu, IEnumerable<string> categories)
+        {
+
+        }
+
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> menu, int? min, int? max)
+        {
+
+        }
+
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
+        {
+
+        }*/
     }
 }

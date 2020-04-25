@@ -18,6 +18,25 @@ namespace CowboyCafe.Website.Pages
             _logger = logger;
         }
 
+
+        /* The listing of items needs to be modified in order to more easily filter items
+         * The Menu class needs to be finished, right now the only method done is SearchTerms, but it isn't really applied yet.
+         * We need backing variables which will hold the list(s) within THIS class.
+         */
+        [BindProperty]  
+        public string SearchTerms { get; set; } = "";
+
+        public string[] Categories { get; set; }
+
+        public int? CalMin { get; set; }
+
+        public int? CalMax { get; set; }
+
+        public double? PriceMin { get; set; }
+
+        public double? PriceMax { get; set; }
+
+
         public void OnGet()
         {
         }
