@@ -5,116 +5,139 @@
 }
 
 
+<form id="menu-index">
+    <div class="text-center">
+        <h1 class="display-4">Welcome to</h1>
+        <h1>Cowboy Cafe</h1>
+        <p>
+            We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+            Shake off the dust on your boots and sake your thirst with one of our old-fashioned
+            hand-jerked sodas. Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty
+            Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
+        </p>
+        <div id="filters">
+            <div id="search">
+                <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+                <input type="submit" value="Search">
+            </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to</h1>
-    <h1>Cowboy Cafe</h1>
-    <p>
-        We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
-        Shake off the dust on your boots and sake your thirst with one of our old-fashioned
-        hand-jerked sodas. Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty
-        Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
-    </p>
+            <div class="categories">
+                <h4>Categories</h4>
+                @foreach (String category in Menu.Categories)
+                {
+                    <label>
+                        <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
+                        @category
+                    </label>
+                }
+            </div>
 
-    <div class="search-filter">
-        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
-        <input type="submit" value="Search">
+        </div>
+
+        @if (Model.Categories == null || Model.Categories.Length == 0 || Model.Categories.Contains("Entrees"))
+        {
+            <h2 class="item-type-title">Entrees</h2>
+            <ul class="item-list">
+                @foreach (Entree entree in Model.MenuList.OfType<Entree>())
+                {
+                    <li>
+                        <div class="menu-item">
+                            <div class="entree-price-cal">
+                                <h3 class="item-title">@entree.ToString()</h3>
+                                <p class="cal">@entree.Calories calories</p>
+                            </div>
+                            <div class="price">
+                                <div class="entree-price">@entree.Price.ToString("C2")</div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
+
+        @if (Model.Categories == null || Model.Categories.Length == 0 || Model.Categories.Contains("Sides"))
+        {
+            <h2 class="item-type-title">Sides</h2>
+            <ul class="item-list">
+                @foreach (Side side in Model.MenuList.OfType<Side>())
+                {
+                    <li>
+                        <div class="menu-item">
+                            <div class="side-price-cal">
+                                <h3 class="item-title">@side.ToString().Remove(0, 5)</h3>
+                                <p class="cal">
+                                    @side.Calories /
+                                    @{side.Size = Size.Medium;}
+                                    @side.Calories /
+                                    @{ side.Size = Size.Large; }
+                                    @side.Calories
+                                    @{ side.Size = Size.Small; }
+                                    calories
+                                </p>
+                            </div>
+                            <div class="price">
+                                <div class="small-price">@side.Price.ToString("C2")</div>
+                                @{side.Size = Size.Medium;}
+                                <div class="medium-price">@side.Price.ToString("C2")</div>
+                                @{ side.Size = Size.Large; }
+                                <div class="large-price">@side.Price.ToString("C2")</div>
+                                @{ side.Size = Size.Small; }
+
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
+
+        @if (Model.Categories == null || Model.Categories.Length == 0 || Model.Categories.Contains("Drinks"))
+        {
+            <h2 class="item-type-title">Drinks</h2>
+            <ul class="item-list">
+                @foreach (Drink drink in Model.MenuList.OfType<Drink>())
+                {
+                    <li>
+                        <div class="menu-item">
+                            <div class="drink-price-cal">
+                                <h3 class="item-title">@drink.ToString().Remove(0, 5)</h3>
+                                @if (drink is CowboyCafe.Data.Drinks.Water)
+                                {
+                                    <p class="cal">@drink.Calories calories</p>
+                                }
+                                else
+                                {
+                                    <p class="cal">
+                                        @drink.Calories /
+                                        @{ drink.Size = Size.Medium; }
+                                        @drink.Calories /
+                                        @{ drink.Size = Size.Large; }
+                                        @drink.Calories
+                                        @{ drink.Size = Size.Small; }
+                                        calories
+                                    </p>
+                                }
+                            </div>
+                            @if (drink is CowboyCafe.Data.Drinks.Water)
+                            {
+                                <div class="price">
+                                    <div class="entree-price">@drink.Price.ToString("C2")</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="price">
+                                    <div class="small-price">@drink.Price.ToString("C2")</div>
+                                    @{drink.Size = Size.Medium;}
+                                    <div class="medium-price">@drink.Price.ToString("C2")</div>
+                                    @{ drink.Size = Size.Large; }
+                                    <div class="large-price">@drink.Price.ToString("C2")</div>
+                                    @{ drink.Size = Size.Small; }
+                                </div>
+                            }
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
     </div>
-
-    <h2 class="item-type-title">Entrees</h2>
-    <ul class="item-list">
-        @foreach (Entree entree in Menu.Entrees)
-        {
-            <li>
-                <div class="menu-item">
-                    <div class="entree-price-cal">
-                        <h3 class="item-title">@entree.ToString()</h3>
-                        <p class="cal">@entree.Calories calories</p>
-                    </div>
-                    <div class="price">
-                        <div class="entree-price">@entree.Price.ToString("C2")</div>
-                    </div>
-                </div>
-            </li>
-        }
-    </ul>
-
-    <h2 class="item-type-title">Sides</h2>
-    <ul class="item-list">
-        @foreach (Side side in Menu.Sides)
-        {
-            <li>
-                <div class="menu-item">
-                    <div class="side-price-cal">
-                        <h3 class="item-title">@side.ToString().Remove(0, 5)</h3>
-                        <p class="cal">
-                            @side.Calories /
-                            @{side.Size = Size.Medium;}
-                            @side.Calories /
-                            @{ side.Size = Size.Large; }
-                            @side.Calories
-                            @{ side.Size = Size.Small; }
-                            calories
-                        </p>
-                    </div>
-                    <div class="price">
-                        <div class="small-price">@side.Price.ToString("C2")</div>
-                        @{side.Size = Size.Medium;}
-                        <div class="medium-price">@side.Price.ToString("C2")</div>
-                        @{ side.Size = Size.Large; }
-                        <div class="large-price">@side.Price.ToString("C2")</div>
-                        @{ side.Size = Size.Small; }
-
-                    </div>
-                </div>
-            </li>
-        }
-    </ul>
-
-    <h2 class="item-type-title">Drinks</h2>
-    <ul class="item-list">
-        @foreach (Drink drink in Menu.Drinks)
-        {
-            <li>
-                <div class="menu-item">
-                    <div class="drink-price-cal">
-                        <h3 class="item-title">@drink.ToString().Remove(0,5)</h3>
-                        @if (drink is CowboyCafe.Data.Drinks.Water)
-                        {
-                            <p class="cal">@drink.Calories calories</p>
-                        }
-                        else
-                        {
-                            <p class="cal">
-                                @drink.Calories /
-                                @{ drink.Size = Size.Medium; }
-                                @drink.Calories /
-                                @{ drink.Size = Size.Large; }
-                                @drink.Calories
-                                @{ drink.Size = Size.Small; }
-                                calories
-                            </p>
-                        }
-                    </div>
-                    @if (drink is CowboyCafe.Data.Drinks.Water)
-                    {
-                        <div class="price">
-                            <div class="entree-price">@drink.Price.ToString("C2")</div>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="price">
-                            <div class="small-price">@drink.Price.ToString("C2")</div>
-                            @{drink.Size = Size.Medium;}
-                            <div class="medium-price">@drink.Price.ToString("C2")</div>
-                            @{ drink.Size = Size.Large; }
-                            <div class="large-price">@drink.Price.ToString("C2")</div>
-                            @{ drink.Size = Size.Small; }
-                        </div>
-                    }
-                </div>
-            </li>
-        }
-    </ul>
-</div>
+</form>

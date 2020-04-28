@@ -18,12 +18,16 @@ namespace CowboyCafe.Website.Pages
             _logger = logger;
         }
 
+        /// <summary>
+        /// List of Entrees being displayed
+        /// </summary>
+        public IEnumerable<IOrderItem> MenuList { get; protected set; }
 
         /* The listing of items needs to be modified in order to more easily filter items
          * The Menu class needs to be finished, right now the only method done is SearchTerms, but it isn't really applied yet.
          * We need backing variables which will hold the list(s) within THIS class.
          */
-        [BindProperty]  
+        //[BindProperty]  
         public string SearchTerms { get; set; } = "";
 
         public string[] Categories { get; set; }
@@ -36,9 +40,16 @@ namespace CowboyCafe.Website.Pages
 
         public double? PriceMax { get; set; }
 
-
+        /// <summary>
+        /// On search.
+        /// </summary>
         public void OnGet()
         {
+            SearchTerms = Request.Query["SearchTerms"];
+            Categories = Request.Query["Categories"];
+
+            MenuList = Menu.Search(Menu.CompleteMenu, SearchTerms);
+            MenuList = Menu.FilterByCategory(MenuList, Categories);
         }
     }
 }

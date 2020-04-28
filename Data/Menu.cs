@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using CowboyCafe.Data.Entrees;
 using CowboyCafe.Data.Sides;
 using CowboyCafe.Data.Drinks;
@@ -14,7 +15,7 @@ namespace CowboyCafe.Data
         /// Creates static enumeration of a single instance of every entree.
         /// </summary>
         /// <returns>Enumeration of every entree</returns>
-        public static IEnumerable<IOrderItem> Entrees 
+        public static IEnumerable<IOrderItem> Entrees
         {
             get
             {
@@ -81,6 +82,18 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// String list of the types of categories
+        /// </summary>
+        public static string[] Categories{
+            get => new string[]
+            {
+                "Entrees",
+                "Sides",
+                "Drinks"
+            };
+        }
+
         private static IEnumerable<IOrderItem> completeMenu;
         /// <summary>
         /// Creates static enumeration of a single instance of every menu item.
@@ -116,17 +129,44 @@ namespace CowboyCafe.Data
             return results;
         }
 
-        /*public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> menu, IEnumerable<string> categories)
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> menu, IEnumerable<string> categories)
+        {
+
+            if (categories == null || categories.Count() == 0) return menu;
+
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (categories.Contains("Entrees"))
+            {
+                foreach (Entree item in menu.OfType<Entree>())
+                {
+                    results.Add(item);
+                }
+            }
+            if (categories.Contains("Sides"))
+            {
+                foreach (Side item in menu.OfType<Side>())
+                {
+                    results.Add(item);
+                }
+            }
+            if (categories.Contains("Drinks"))
+            {
+                foreach (Drink item in menu.OfType<Drink>())
+                {
+                    results.Add(item);
+                }
+            }
+
+            return results;
+        }
+
+        /*public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> menu, int? min, int? max)
         {
 
         }
 
-        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> menu, int? min, int? max)
-        {
-
-        }
-
-        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
+        /*public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
         {
 
         }*/
