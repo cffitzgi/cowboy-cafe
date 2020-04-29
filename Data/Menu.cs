@@ -116,6 +116,12 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Filters IOrderItems list by serachterm
+        /// </summary>
+        /// <param name="menu">Enumerable list of IOrderItems</param>
+        /// <param name="term">Search terms</param>
+        /// <returns>Filtered list of IOrderItems</returns>
         public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> menu, string term)
         {
             List<IOrderItem> results = new List<IOrderItem>();
@@ -129,6 +135,12 @@ namespace CowboyCafe.Data
             return results;
         }
 
+        /// <summary>
+        /// Filters IOrderItems list according to category
+        /// </summary>
+        /// <param name="menu">Enumerable list of IOrderItems</param>
+        /// <param name="term">Search terms</param>
+        /// <returns>Filtered list of IOrderItems</returns>
         public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> menu, IEnumerable<string> categories)
         {
 
@@ -161,14 +173,205 @@ namespace CowboyCafe.Data
             return results;
         }
 
-        /*public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> menu, int? min, int? max)
+        /// <summary>
+        /// Filters IOrderItemList list according to Calorie count
+        /// </summary>
+        /// <param name="menu">Enumerable list of IOrderItems</param>
+        /// <param name="min">Minimum amount of calories</param>
+        /// <param name="max">Maximum amount of calories</param>
+        /// <returns>Filtered list of IOrderItems</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> menu, int? min, int? max)
         {
+            if (min == null  && max == null) return menu;
 
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (min == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Calories <= max)
+                        results.Add(item);
+                }
+            }
+            else if (max == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item is Drink drink)
+                    {
+                        drink = SwapSize(drink);
+
+                        if (min <= drink.Calories)
+                            results.Add(item);
+
+                        drink = SwapSize(drink);
+                    }
+                    else if (item is Side side)
+                    {
+                        side = SwapSize(side);
+
+                        if (min <= side.Calories)
+                            results.Add(item);
+
+                        side = SwapSize(side);
+                    }
+                    else
+                    {
+                        if (min <= item.Calories)
+                            results.Add(item);
+                    }
+                }
+            }
+            else
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Calories <= max)
+                    {
+                        if (item is Drink drink)
+                        {
+                            drink = SwapSize(drink);
+
+                            if (min <= drink.Calories)
+                                results.Add(item);
+
+                            drink = SwapSize(drink);
+                        }
+                        else if (item is Side side)
+                        {
+                            side = SwapSize(side);
+
+                            if (min <= side.Calories)
+                                results.Add(item);
+
+                            side = SwapSize(side);
+                        }
+                        else
+                        {
+                            if (min <= item.Calories)
+                                results.Add(item);
+                        }
+                    }
+                }
+            }
+            return results;
         }
 
-        /*public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
+        /// <summary>
+        /// Filters IOrderItemList list according to Price
+        /// </summary>
+        /// <param name="menu">Enumerable list of IOrderItems</param>
+        /// <param name="min">Minimum amount of calories</param>
+        /// <param name="max">Maximum amount of calories</param>
+        /// <returns>Filtered list of IOrderItems</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> menu, double? min, double? max)
         {
+            if (min == null && max == null) return menu;
 
-        }*/
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (min == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    
+                    if (item.Price <= max)
+                        results.Add(item);
+                }
+            }
+            else if (max == null)
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item is Drink drink)
+                    {
+                        drink = SwapSize(drink);
+
+                        if (min <= drink.Price)
+                            results.Add(item);
+
+                        drink = SwapSize(drink);
+                    }
+                    else if (item is Side side)
+                    {
+                        side = SwapSize(side);
+
+                        if (min <= side.Price)
+                            results.Add(item);
+
+                        side = SwapSize(side);
+                    }
+                    else
+                    {
+                        if (min <= item.Price)
+                            results.Add(item);
+                    }
+                }
+            }
+            else
+            {
+                foreach (IOrderItem item in menu)
+                {
+                    if (item.Price <= max)
+                    {
+                        if (item is Drink drink)
+                        {
+                            drink = SwapSize(drink);
+
+                            if (min <= drink.Price)
+                                results.Add(item);
+
+                            drink = SwapSize(drink);
+                        }
+                        else if (item is Side side)
+                        {
+                            side = SwapSize(side);
+
+                            if (min <= side.Price)
+                                results.Add(item);
+
+                            side = SwapSize(side);
+                        }
+                        else
+                        {
+                            if (min <= item.Price)
+                                results.Add(item);
+                        }
+                    }
+                }
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// Swaps side paramter with Size Small=>Large/Large=>Small
+        /// </summary>
+        /// <param name="side">Side to swap</param>
+        /// <returns>Size swapped side</returns>
+        private static Side SwapSize(Side side)
+        {
+            if (side.Size == Size.Small)
+                side.Size = Size.Large;
+            else
+                side.Size = Size.Small;
+
+            return side;
+        }
+
+        /// <summary>
+        /// Swaps drink paramter with Size Small=>Large/Large=>Small
+        /// </summary>
+        /// <param name="drink">Drink to swap</param>
+        /// <returns>Size swapped drink</returns>
+        private static Drink SwapSize(Drink drink)
+        {
+            if (drink.Size == Size.Small)
+                drink.Size = Size.Large;
+            else
+                drink.Size = Size.Small;
+
+            return drink;
+        }
     }
 }

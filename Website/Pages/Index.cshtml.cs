@@ -23,33 +23,52 @@ namespace CowboyCafe.Website.Pages
         /// </summary>
         public IEnumerable<IOrderItem> MenuList { get; protected set; }
 
-        /* The listing of items needs to be modified in order to more easily filter items
-         * The Menu class needs to be finished, right now the only method done is SearchTerms, but it isn't really applied yet.
-         * We need backing variables which will hold the list(s) within THIS class.
-         */
-        //[BindProperty]  
+        /// <summary>
+        /// Search terms to filter for
+        /// </summary>
         public string SearchTerms { get; set; } = "";
 
+        /// <summary>
+        /// Categories to filter for
+        /// </summary>
         public string[] Categories { get; set; }
 
+        /// <summary>
+        /// Minimum amount of calories to filter for
+        /// </summary>
         public int? CalMin { get; set; }
 
+        /// <summary>
+        /// Maximum amount of calories to filter for
+        /// </summary>
         public int? CalMax { get; set; }
 
+        /// <summary>
+        /// Minimum price to filter for
+        /// </summary>
         public double? PriceMin { get; set; }
 
+        /// <summary>
+        /// Maximum price to filter for
+        /// </summary>
         public double? PriceMax { get; set; }
 
         /// <summary>
         /// On search.
         /// </summary>
-        public void OnGet()
+        public void OnGet(double? priceMin, double? priceMax, int? calMin, int? calMax)
         {
             SearchTerms = Request.Query["SearchTerms"];
             Categories = Request.Query["Categories"];
+            PriceMin = priceMin;
+            PriceMax = priceMax;
+            CalMin = calMin;
+            CalMax = calMax;
 
             MenuList = Menu.Search(Menu.CompleteMenu, SearchTerms);
             MenuList = Menu.FilterByCategory(MenuList, Categories);
+            MenuList = Menu.FilterByPrice(MenuList, PriceMin, PriceMax);
+            MenuList = Menu.FilterByCalories(MenuList, CalMin, CalMax);
         }
     }
 }

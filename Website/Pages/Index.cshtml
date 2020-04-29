@@ -16,22 +16,41 @@
             Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
         </p>
         <div id="filters">
-            <div id="search">
-                <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
-                <input type="submit" value="Search">
+            <div class="filter-features">
+
+                <div class="categories">
+                    @foreach (String category in Menu.Categories)
+                    {
+                        <label>
+                            <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
+                            @category
+                        </label>
+                    }
+                </div>
+
+                <div id="search">
+                    <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+                    <input type="submit" value="Search">
+                </div>
             </div>
 
-            <div class="categories">
-                <h4>Categories</h4>
-                @foreach (String category in Menu.Categories)
-                {
-                    <label>
-                        <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
-                        @category
-                    </label>
-                }
-            </div>
+            <div class="min-max">
+                <h6>Calories</h6>
+                <div>
 
+                    <input name="CalMin" type="number" min="0" max="2000" step="10" placeholder="min" value="@Model.CalMin" />
+                    -
+                    <input name="CalMax" type="number" min="0" max="2000" step="10" placeholder="max" value="@Model.CalMax" />
+                </div>
+            </div>
+            <div class="min-max">
+                <h6>Price</h6>
+                <div>
+                    <input name="PriceMin" type="number" min="0" max="99" step="0.1" placeholder="min" value="@Model.PriceMin" />
+                    -
+                    <input name="PriceMax" type="number" min="0" max="99" step="0.1" placeholder="max" value="@Model.PriceMax" />
+                </div>
+            </div>
         </div>
 
         @if (Model.Categories == null || Model.Categories.Length == 0 || Model.Categories.Contains("Entrees"))

@@ -98,14 +98,32 @@ ul.item-list {
 /*Search Bar/Filter Components*/
 
 #search {
-    grid-column-start: 1;
-    grid-column-end: 3;
     text-align: center;
+}
+
+.categories {
+    padding-left: 5px;
+}
+
+.filter-features { 
+    display: flex;
+    flex-direction: column;
+}
+
+.min-max {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: .8rem;
 }
 
 #filters {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
 }
 /*#filters > .categories {
     grid-row-start: 1;
