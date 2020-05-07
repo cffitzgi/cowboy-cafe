@@ -53,72 +53,91 @@
             </div>
         </div>
 
-        @if (Model.Categories == null || Model.Categories.Length == 0 || Model.Categories.Contains("Entrees"))
-        {
-            <h2 class="item-type-title">Entrees</h2>
-            <ul class="item-list">
-                @foreach (Entree entree in Model.MenuList.OfType<Entree>())
-                {
-                    <li>
-                        <div class="menu-item">
-                            <div class="entree-price-cal">
-                                <h3 class="item-title">@entree.ToString()</h3>
-                                <p class="cal">@entree.Calories calories</p>
-                            </div>
-                            <div class="price">
-                                <div class="entree-price">@entree.Price.ToString("C2")</div>
-                            </div>
-                        </div>
-                    </li>
-                }
-            </ul>
-        }
+        <div class="menu-categories">
+           @if (Model.MenuList.Where(item => item is Entree).Count() > 0)
+            {
+                <div class="menu-category">
+                    <h2 class="item-type-title">Entrees</h2>
+                    <ul class="item-list">
+                        @foreach (Entree entree in Model.MenuList.OfType<Entree>())
+                        {
+                            <li>
+                                <div class="menu-item">
+                                    <div class="entree-price-cal">
+                                        <h3 class="item-title">@entree.ToString()</h3>
+                                        <p class="cal">@entree.Calories calories</p>
+                                    </div>
+                                    <div class="price">
+                                        <div class="entree-price">@entree.Price.ToString("C2")</div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
 
-        @if (Model.Categories == null || Model.Categories.Length == 0 || Model.Categories.Contains("Sides"))
-        {
-            <h2 class="item-type-title">Sides</h2>
-            <ul class="item-list">
-                @foreach (Side side in Model.MenuList.OfType<Side>())
-                {
-                    <li>
-                        <div class="menu-item">
-                            <div class="side-price-cal">
-                                <h3 class="item-title">@side.ToString().Remove(0, 5)</h3>
-                                <p class="cal">
-                                    @side.Calories /
-                                    @{side.Size = Size.Medium;}
-                                    @side.Calories /
-                                    @{ side.Size = Size.Large; }
-                                    @side.Calories
-                                    @{ side.Size = Size.Small; }
-                                    calories
-                                </p>
-                            </div>
-                            <div class="price">
-                                <div class="small-price">@side.Price.ToString("C2")</div>
-                                @{side.Size = Size.Medium;}
-                                <div class="medium-price">@side.Price.ToString("C2")</div>
-                                @{ side.Size = Size.Large; }
-                                <div class="large-price">@side.Price.ToString("C2")</div>
-                                @{ side.Size = Size.Small; }
+           @if (Model.MenuList.Where(item => item is Side).Count() > 0)
+            {
+                <div class="menu-category">
 
-                            </div>
-                        </div>
-                    </li>
-                }
-            </ul>
-        }
+                    <h2 class="item-type-title">Sides</h2>
+                    <ul class="item-list">
+                        @foreach (Side side in Model.MenuList.OfType<Side>())
+                        {
+                            <li>
+                                <div class="menu-item">
+                                    <div class="side-price-cal">
+                                        <h3 class="item-title">@side.ToString().Remove(0, 5)</h3>
+                                        <p class="cal">
+                                            @side.Calories /
+                                            @{side.Size = Size.Medium;}
+                                            @side.Calories /
+                                            @{ side.Size = Size.Large; }
+                                            @side.Calories
+                                            @{ side.Size = Size.Small; }
+                                            calories
+                                        </p>
+                                    </div>
+                                    <div class="price">
+                                        <div class="small-price">@side.Price.ToString("C2")</div>
+                                        @{side.Size = Size.Medium;}
+                                        <div class="medium-price">@side.Price.ToString("C2")</div>
+                                        @{ side.Size = Size.Large; }
+                                        <div class="large-price">@side.Price.ToString("C2")</div>
+                                        @{ side.Size = Size.Small; }
 
-        @if (Model.Categories == null || Model.Categories.Length == 0 || Model.Categories.Contains("Drinks"))
-        {
-            <h2 class="item-type-title">Drinks</h2>
-            <ul class="item-list">
-                @foreach (Drink drink in Model.MenuList.OfType<Drink>())
-                {
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+
+           @if (Model.MenuList.Where(item => item is Drink).Count() > 0)
+            {
+            <div class="menu-category">
+                <h2 class="item-type-title">Drinks</h2>
+                <ul class="item-list">
+                    @foreach (Drink drink in Model.MenuList.OfType<Drink>())
+                    {
                     <li>
                         <div class="menu-item">
                             <div class="drink-price-cal">
-                                <h3 class="item-title">@drink.ToString().Remove(0, 5)</h3>
+                                @if (drink is Data.Drinks.JerkedSoda)
+                                {
+                                    <h3 class="item-title">
+                                        @drink.ToString().Remove(0, 17)
+                                    </h3>
+                                }
+                                else
+                                {
+                                    <h3 class="item-title">
+                                        @drink.ToString().Remove(0, 5)
+                                    </h3>
+                                }
+
                                 @if (drink is CowboyCafe.Data.Drinks.Water)
                                 {
                                     <p class="cal">@drink.Calories calories</p>
@@ -135,6 +154,8 @@
                                         calories
                                     </p>
                                 }
+
+
                             </div>
                             @if (drink is CowboyCafe.Data.Drinks.Water)
                             {
@@ -154,9 +175,26 @@
                                 </div>
                             }
                         </div>
+                        @if (drink is Data.Drinks.JerkedSoda soda)
+                        {
+                            <p class="cal">
+                                @soda.ToString().Remove(0, 5).Remove(11)  /
+                                @{ soda.Flavor = SodaFlavor.CreamSoda;}
+                                @soda.ToString().Remove(0, 5).Remove(11) /
+                                @{ soda.Flavor = SodaFlavor.OrangeSoda;}
+                                @soda.ToString().Remove(0, 5).Remove(12) /
+                                @{ soda.Flavor = SodaFlavor.RootBeer;}
+                                @soda.ToString().Remove(0, 5).Remove(11) /
+                                @{ soda.Flavor = SodaFlavor.Sarsparilla;}
+                                @soda.ToString().Remove(0, 5).Remove(12)
+                                @{ soda.Flavor = SodaFlavor.BirchBeer;}
+                            </p>
+                        }
                     </li>
-                }
-            </ul>
-        }
-    </div>
+                    }
+                </ul>
+            </div>
+            }
+        </div>
+            </div>
 </form>

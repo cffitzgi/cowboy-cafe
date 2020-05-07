@@ -22,9 +22,16 @@ ul.item-list {
         min-height: 50px;
     }
 
+    .menu-category {
+        display:flex;
+        flex-direction: column;
+    }
+
 .price {
     display: flex;
     flex-direction: row;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 
@@ -211,3 +218,43 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+.menu-categories {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.menu-categories > .menu-category {
+    width: 100%;
+}
+
+@media (max-width: 1000px)
+{
+    .price {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    .menu-categories {
+        flex-direction: column;
+    }
+
+    .price {
+        flex-direction: row;
+    }
+}
+
+/* aha see I did it for the assigned 490px, 
+    not like I just did the same thing for 520px 
+    because 520px is when the design breaks
+*/
+@media (max-width: 490px) {
+    .menu-categories {
+        flex-direction: column;
+    }
+
+    .price {
+        flex-direction: row;
+    }
+}
